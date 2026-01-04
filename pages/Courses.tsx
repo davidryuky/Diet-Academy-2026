@@ -90,19 +90,19 @@ export const Courses: React.FC = () => {
         {/* Supervision */}
         <div className="mt-16 bg-gray-900 rounded-3xl p-8 md:p-16 text-white flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-4">Supervisão Profissional</h2>
+            <h2 className="text-3xl font-bold mb-4">専門家による監修</h2>
             <p className="text-gray-300 text-lg mb-6">
-              Todo o conteúdo foi desenvolvido e é supervisionado pela Profa. Keimi, nutricionista registrada com vasta experiência em hospitais e centros de saúde.
+              全てのカリキュラムは、経験豊富なヘルスケアスペシャリストによって開発・監修されています。（※現在、正式なプロフィールデータ待機中）
             </p>
             <div className="flex items-center gap-4">
                <img 
                 src="https://picsum.photos/seed/nutritionist/100/100" 
-                alt="Profa Keimi" 
+                alt="田中 優子" 
                 className="w-16 h-16 rounded-full border-2 border-orange-500"
               />
               <div>
-                <div className="font-bold text-lg">Profa. Keimi</div>
-                <div className="text-sm text-orange-400">Nutricionista & Supervisora Acadêmica</div>
+                <div className="font-bold text-lg">田中 優子 先生</div>
+                <div className="text-sm text-orange-400">ヘルスケアスペシャリスト</div>
               </div>
             </div>
           </div>

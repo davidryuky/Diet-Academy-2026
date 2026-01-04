@@ -325,16 +325,16 @@ export const Home: React.FC = () => {
                 {/* Supervisor */}
                 <div className="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col md:flex-row gap-8">
                     <div className="md:w-1/3">
-                        <PlaceholderImage height="240px" color="bg-gray-100" text="TEACHER" className="rounded w-full" />
+                        <PlaceholderImage height="240px" color="bg-gray-100" text="INSTRUCTOR" className="rounded w-full" />
                     </div>
                     <div className="md:w-2/3">
                         <h3 className="font-bold text-gray-800 mb-3 text-lg">プロ監修の教材</h3>
                         <div className="flex items-center gap-4 mb-3">
-                             <div className="font-bold text-xl">keimi 先生</div>
-                             <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded">管理栄養士</span>
+                             <div className="font-bold text-xl">田中 優子 先生</div>
+                             <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded">ヘルスケアスペシャリスト</span>
                         </div>
                         <p className="text-sm text-gray-600 leading-relaxed">
-                            講座のテキスト、問題集はすべてプロの先生によって監修されています。初心者の方でも安心です。自信を持ってお勧めできる内容となっております。
+                            業界で長年の実績を持つ専門家が、最新の理論に基づいて教材を全面的に監修しています。初心者の方でも分かりやすく、かつ実践的なスキルが身につく内容です。（※正式な監修者情報は現在準備中です）
                         </p>
                     </div>
                 </div>
