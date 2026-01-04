@@ -10,9 +10,9 @@ export const Courses: React.FC = () => {
     <div className="min-h-screen bg-white pb-20">
       <div className="bg-gray-50 py-12 mb-12 border-b">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-gray-900">Nossas Certificações</h1>
+          <h1 className="text-4xl font-bold text-gray-900">取得可能な資格</h1>
           <p className="mt-4 text-xl text-gray-500">
-            Um currículo completo desenvolvido por nutricionistas e especialistas em fitness.
+            栄養士とフィットネス専門家によって開発された充実のカリキュラム
           </p>
         </div>
       </div>
@@ -23,31 +23,31 @@ export const Courses: React.FC = () => {
           {/* Certification 1 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <div className="bg-green-600 p-6 flex items-center justify-between text-white">
-              <h2 className="text-2xl font-bold">Diet Advisor</h2>
+              <h2 className="text-2xl font-bold">ダイエットアドバイザー</h2>
               <BookOpen size={32} />
             </div>
             <div className="p-8">
               <p className="text-gray-600 mb-6">
-                Torne-se um especialista em aconselhamento dietético. Aprenda a criar estratégias nutricionais baseadas em evidências para diferentes tipos de metabolismo e estilos de vida.
+                食事指導のプロフェッショナルへ。エビデンスに基づいた栄養戦略を立て、クライアントのライフスタイルに合わせたアドバイスが可能になります。
               </p>
               
-              <h3 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">O que você aprende:</h3>
+              <h3 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">学習内容:</h3>
               <ul className="space-y-2 mb-8">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">•</span>
-                  <span>Fundamentos da nutrição e metabolismo</span>
+                  <span>基礎代謝とカロリー計算の理論</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">•</span>
-                  <span>Cálculo de TMB e necessidades calóricas</span>
+                  <span>栄養素の働きと代謝メカニズム</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">•</span>
-                  <span>Psicologia do comportamento alimentar</span>
+                  <span>食行動の心理学とメンタルサポート</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">•</span>
-                  <span>Dietas para patologias específicas</span>
+                  <span>体質や目的に合わせた食事プラン作成</span>
                 </li>
               </ul>
             </div>
@@ -56,31 +56,31 @@ export const Courses: React.FC = () => {
           {/* Certification 2 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <div className="bg-orange-500 p-6 flex items-center justify-between text-white">
-              <h2 className="text-2xl font-bold">Shape-up Instructor</h2>
+              <h2 className="text-2xl font-bold">シェイプアップインストラクター</h2>
               <Activity size={32} />
             </div>
             <div className="p-8">
               <p className="text-gray-600 mb-6">
-                Complemente o conhecimento nutricional com prescrição de exercícios para modelagem corporal. Focado em resultados estéticos e funcionais.
+                美しいボディラインを作るための運動指導資格。栄養学に加え、機能的かつ美容的なエクササイズ処方を学びます。
               </p>
               
-              <h3 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">O que você aprende:</h3>
+              <h3 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">学習内容:</h3>
               <ul className="space-y-2 mb-8">
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Anatomia muscular e biomecânica básica</span>
+                  <span>筋肉の解剖学とバイオメカニクス基礎</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Treinos para queima de gordura vs. hipertrofia</span>
+                  <span>脂肪燃焼と筋肥大のためのトレーニング理論</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Exercícios funcionais em casa</span>
+                  <span>自宅でできるファンクショナルトレーニング</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Postura e correção de movimentos</span>
+                  <span>姿勢改善と動作の修正指導</span>
                 </li>
               </ul>
             </div>
@@ -109,7 +109,7 @@ export const Courses: React.FC = () => {
           <div className="flex-1">
              <img 
               src="https://picsum.photos/seed/studying/600/400" 
-              alt="Material didático" 
+              alt="教材イメージ" 
               className="rounded-xl shadow-lg"
             />
           </div>
@@ -117,7 +117,7 @@ export const Courses: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <Button size="lg" onClick={() => navigate('/pricing')}>Ver Opções de Matrícula</Button>
+          <Button size="lg" onClick={() => navigate('/pricing')}>受講申込みへ進む</Button>
         </div>
       </div>
     </div>

@@ -8,13 +8,6 @@ export const Home: React.FC = () => {
   return (
     <div className="bg-white font-sans text-gray-700 w-full">
       
-      {/* Breadcrumbs - Full Width Background, 92% Inner */}
-      <div className="bg-gray-50 py-3 border-b border-gray-200 text-xs text-gray-500 w-full">
-        <div className="w-[92%] max-w-[1600px] mx-auto">
-          <span className="hover:underline cursor-pointer">通信教育講座のダイエットマスター資格講座</span> &gt; <span>癒し・健康・ボディケアの資格</span> &gt; <span className="font-bold text-gray-800">ダイエットアドバイザー資格取得講座</span>
-        </div>
-      </div>
-
       {/* Hero Image - Full Width Background, 92% Inner (implied by image width if not full bleed, but usually hero is full bleed. If we want margins, we wrap) */}
       <div className="relative w-full">
         {/* PC Image Placeholder */}

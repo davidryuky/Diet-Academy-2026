@@ -46,8 +46,8 @@ export const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Center: Main Navigation (Desktop) */}
-            <nav className="hidden xl:flex items-center space-x-6">
+            {/* Center: Main Navigation (Desktop) - Increased space-x */}
+            <nav className="hidden xl:flex items-center space-x-10">
               {navLinks.map((link) => (
                 <NavLink 
                   key={link.path}
