@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button } from '../components/Button';
-import { PlaceholderImage } from '../components/PlaceholderImage';
-import { Sidebar } from '../components/Sidebar';
+import { Button } from '../components/common/Button';
+import { PlaceholderImage } from '../components/common/PlaceholderImage';
+import { Sidebar } from '../components/layout/Sidebar';
 import { ChevronRight, Users, BookOpen, Clock, ChevronDown } from 'lucide-react';
 
 export const Home: React.FC = () => {
   return (
     <div className="bg-white font-sans text-gray-700 w-full">
       
-      {/* Hero Image - Full Width Background, 92% Inner (implied by image width if not full bleed, but usually hero is full bleed. If we want margins, we wrap) */}
+      {/* Hero Image - Full Width Background, 92% Inner */}
       <div className="relative w-full">
         {/* PC Image Placeholder */}
         <div className="hidden md:block w-full">

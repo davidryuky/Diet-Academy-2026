@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../components/Button';
+import { Button } from '../components/common/Button';
 import { Smartphone, Book, Mail, Video } from 'lucide-react';
 
 export const Methods: React.FC = () => {
