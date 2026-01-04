@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "心理的な要因や、睡眠・ストレスなど、見落としがちな日常の習慣がダイエット成功の鍵を握っています。",
     category: "心理学・習慣",
     date: "2026.03.01",
-    image: "https://picsum.photos/seed/dietfail/800/600",
+    image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&auto=format&fit=crop&q=60",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">努力しているのに痩せない理由</h2>
       <p class="mb-6 leading-relaxed">「食事制限も運動も頑張っているのに、なぜか結果が出ない...」そんな経験はありませんか？実は、ダイエットの成功を左右するのは、カロリー計算だけではありません。</p>
@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "「食べない」ではなく「何を食べるか」。満腹感を得ながら無理なく痩せるための食事術を紹介します。",
     category: "食事術",
     date: "2026.03.01",
-    image: "https://picsum.photos/seed/healthybowl/800/600",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=60",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">我慢は続かない。賢く食べる選択を。</h2>
       <p class="mb-6 leading-relaxed">空腹と戦うダイエットは、いつか必ず爆発します。重要なのは、少ないカロリーで高い満足感を得られる食事を選ぶことです。</p>
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "多くの人が信じている代謝の誤解を解き、日常生活で効率よく脂肪を燃やすための科学的な真実を解説。",
     category: "基礎知識",
     date: "2026.03.01",
-    image: "https://picsum.photos/seed/metabolism/800/600",
+    image: "https://images.unsplash.com/photo-1486739985386-d4fae04ca6f7?w=800&auto=format&fit=crop&q=60",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">「年齢のせい」にする前に知っておくべきこと</h2>
       <p class="mb-6 leading-relaxed">「昔と同じ食事なのに太る」「代謝が落ちた気がする」。そう感じる人は多いですが、実は基礎代謝の変化は想像よりも緩やかです。</p>
@@ -83,7 +83,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "永遠のテーマに決着。減量において優先すべきはどちらなのか、効率的なバランスについて徹底比較します。",
     category: "検証",
     date: "2026.03.01",
-    image: "https://picsum.photos/seed/runorfood/800/600",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&auto=format&fit=crop&q=60",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">結論：減量なら「食事」、ボディメイクなら「運動」</h2>
       <p class="mb-6 leading-relaxed">ダイエットにおいて、食事と運動の重要度は「食事8割、運動2割」と言われることが多いですが、これは科学的にも理にかなっています。</p>
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "無理に始めても失敗します。まずは自分の体の状態をチェックし、痩せやすい土台を作るためのポイント。",
     category: "健康管理",
     date: "2026.03.01",
-    image: "https://picsum.photos/seed/checkup/800/600",
+    image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?w=800&auto=format&fit=crop&q=60",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">体がSOSを出していませんか？</h2>
       <p class="mb-6 leading-relaxed">体が生命維持の危機を感じている状態で、さらにエネルギーを制限するダイエットを行うのは危険であり、逆効果です。以下のサインがある場合は、減量よりも体調回復を優先しましょう。</p>
@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "痩せることよりも難しい「維持すること」。多くのダイエットプログラムが語らない、長期的な体型維持の極意。",
     category: "維持・習慣",
     date: "2026.03.01",
-    image: "https://picsum.photos/seed/balance/800/600",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=60",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">ダイエットは「目標体重達成」で終わりではない</h2>
       <p class="mb-6 leading-relaxed">統計によると、ダイエット成功者の約8割が2年以内にリバウンドすると言われています。なぜでしょうか？それは、「ダイエット期間」と「通常期間」を分けて考えているからです。</p>
