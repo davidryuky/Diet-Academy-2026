@@ -11,6 +11,7 @@ import { Methods } from './pages/Methods';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { useScrollToTop } from './hooks/useScrollToTop';
+import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 
 // Component to scroll to top on route change, using the hook
 const ScrollToTop = () => {
@@ -22,7 +23,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen relative">
         <Header />
         <main className="flex-grow">
           <Routes>
@@ -37,6 +38,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </Router>
   );
