@@ -8,6 +8,7 @@ export const Header: React.FC = () => {
   const navigate = useNavigate();
 
   const navLinks = [
+    { name: 'ホーム', path: '/', sub: 'Home' },
     { name: '目的から探す', path: '/seekers', sub: 'For Seekers' },
     { name: '講師・プロ向け', path: '/instructors', sub: 'For Instructors' },
     { name: '講座一覧', path: '/courses', sub: 'Courses' },
@@ -95,10 +96,6 @@ export const Header: React.FC = () => {
         {isOpen && (
           <div className="xl:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg h-[calc(100vh-112px)] overflow-y-auto">
             <div className="px-6 py-6 space-y-4">
-              <NavLink to="/" onClick={() => setIsOpen(false)} className="block py-3 border-b border-gray-100 text-lg font-medium text-gray-800">
-                ホーム <span className="text-xs text-gray-400 ml-2">Home</span>
-              </NavLink>
-              
               {navLinks.map((link) => (
                 <NavLink 
                   key={link.path}

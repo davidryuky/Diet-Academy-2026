@@ -2,9 +2,12 @@ import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { Sidebar } from '../components/layout/Sidebar';
-import { ChevronRight, Users, BookOpen, Clock, ChevronDown } from 'lucide-react';
+import { ChevronRight, Users, BookOpen, Clock, ChevronDown, Sparkles, TrendingUp, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white font-sans text-gray-700 w-full">
       
@@ -20,19 +23,8 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Review Section - 92% Width */}
-      <div className="w-[92%] max-w-[1600px] mx-auto py-8 border-b border-gray-100">
-        <div className="flex flex-col items-center">
-            <h3 className="text-sm font-bold text-gray-500 mb-2">資格講座のレビュー</h3>
-            <div className="flex text-yellow-400 gap-1 text-2xl">
-                ★★★★★
-            </div>
-            <div className="w-24 h-1 bg-gray-200 mt-2"></div>
-        </div>
-      </div>
-
       {/* Catch Area - Statistics (Full Width BG, 92% Inner) */}
-      <div className="bg-gray-50 py-10 border-b border-gray-200 w-full">
+      <div className="bg-gray-50 py-12 border-b border-gray-200 w-full">
         <div className="w-[92%] max-w-[1600px] mx-auto">
           <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 text-center md:text-left">
             <div className="flex items-center">
@@ -48,28 +40,71 @@ export const Home: React.FC = () => {
               <div><span className="text-sm text-gray-500 block font-bold">便利</span><span className="font-bold text-xl text-gray-800">自宅で <span className="text-orange-600 text-5xl font-serif-jp font-bold">試験OK</span> 在宅受験対応!</span></div>
             </div>
           </div>
-          <div className="text-right mt-6 text-xs text-gray-400 max-w-5xl mx-auto">
-            ※1 資格保持者：販売開始～24年11月30日の累計資格保持者数<br/>
-            ※2 23年受講生様アンケート回答
-          </div>
         </div>
       </div>
 
-      {/* News Ticker (Full Width BG, 92% Inner) */}
-      <div className="bg-white py-6 border-b border-gray-200 w-full">
-        <div className="max-w-4xl mx-auto px-4 w-[92%]">
-            <h2 className="text-center font-serif-jp text-xl font-bold mb-4">講座 News</h2>
-            <div className="border-t border-b border-gray-100 py-4">
-                <ul className="text-sm text-gray-600 space-y-3">
-                    <li className="flex items-start">
-                        <span className="text-orange-500 mr-2">●</span>
-                        発酵食品マイスターと発酵食健康アドバイザーをファッションモデルの高垣麗子さんが取得した事を公表されました。
-                    </li>
-                    <li className="flex items-start">
-                        <span className="text-orange-500 mr-2">●</span>
-                        食育健康アドバイザー®と管理健康栄養インストラクター®を小倉優子(ゆうこりん)さんが取得した事を公表されました。
-                    </li>
-                </ul>
+      {/* Target Audience Trigger Section (Replaces News) */}
+      <div className="bg-white py-12 w-full">
+        <div className="w-[92%] max-w-[1600px] mx-auto">
+            <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                    あなたの「目的」はどちらですか？
+                </h2>
+                <div className="w-16 h-1 bg-orange-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+                {/* Seeker Trigger */}
+                <div 
+                    onClick={() => navigate('/seekers')}
+                    className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 to-pink-50 border-2 border-transparent hover:border-orange-200 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl"
+                >
+                    <div className="absolute top-[-10px] right-[-10px] p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Sparkles size={100} className="text-orange-500" />
+                    </div>
+                    <div className="p-6 md:p-8 relative z-10 flex flex-col justify-center h-full">
+                        <div className="flex justify-between items-start mb-3">
+                            <div className="inline-block bg-white text-orange-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm border border-orange-100">
+                                自分を変えたい方へ
+                            </div>
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 leading-snug">
+                            「我慢」はもう終わり。<span className="text-orange-600">一生太らない知識</span>を手に入れませんか？
+                        </h3>
+                        <p className="text-gray-600 mb-6 text-sm leading-relaxed max-w-2xl">
+                            流行りのダイエットに振り回されるのは卒業。科学的に正しいメソッドで、心も体も満たされる本当の健康美を目指すあなたへ。
+                        </p>
+                        <div className="flex items-center text-orange-600 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base mt-auto">
+                            詳細を見る <ArrowRight size={18} className="ml-2" />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Instructor Trigger */}
+                <div 
+                    onClick={() => navigate('/instructors')}
+                    className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-transparent hover:border-blue-200 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl"
+                >
+                    <div className="absolute top-[-10px] right-[-10px] p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <TrendingUp size={100} className="text-blue-500" />
+                    </div>
+                    <div className="p-6 md:p-8 relative z-10 flex flex-col justify-center h-full">
+                        <div className="flex justify-between items-start mb-3">
+                            <div className="inline-block bg-white text-blue-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm border border-blue-100">
+                                プロを目指す方へ
+                            </div>
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 leading-snug">
+                            その経験が価値になる。<span className="text-blue-600">信頼されるプロ</span>として新しいキャリアを。
+                        </h3>
+                        <p className="text-gray-600 mb-6 text-sm leading-relaxed max-w-2xl">
+                            W資格取得で専門性を証明。副業、独立、サロン開業... あなたの「好き」を仕事にするための確かなスキルと自信を。
+                        </p>
+                        <div className="flex items-center text-blue-600 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base mt-auto">
+                            詳細を見る <ArrowRight size={18} className="ml-2" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
       </div>
@@ -147,6 +182,9 @@ export const Home: React.FC = () => {
                         <div className="md:w-1/4 flex flex-col items-center text-center">
                             <PlaceholderImage width="120px" height="120px" color="bg-gray-300" text="FACE" className="rounded-full mb-4" />
                             <div className="text-base font-bold">櫻場孝徳 さん / 20代</div>
+                            <div className="flex text-yellow-400 gap-1 text-sm mt-2 justify-center">
+                                ★★★★★
+                            </div>
                         </div>
                         <div className="md:w-3/4">
                             <h3 className="font-bold text-xl mb-4 text-orange-600 leading-relaxed">口コミがよかったので安心して受講できました。</h3>
