@@ -386,11 +386,11 @@ export const Home: React.FC = () => {
                     <div className="md:w-2/3">
                         <h3 className="font-bold text-gray-800 mb-3 text-lg">プロ監修の教材</h3>
                         <div className="flex items-center gap-4 mb-3">
-                             <div className="font-bold text-xl">田中 優子 先生</div>
-                             <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded">ヘルスケアスペシャリスト</span>
+                             <div className="font-bold text-xl">山田 花子 先生</div>
+                             <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded">管理栄養士</span>
                         </div>
                         <p className="text-sm text-gray-600 leading-relaxed">
-                            業界で長年の実績を持つ専門家が、最新の理論に基づいて教材を全面的に監修しています。初心者の方でも分かりやすく、かつ実践的なスキルが身につく内容です。（※正式な監修者情報は現在準備中です）
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         </p>
                     </div>
                 </div>

@@ -92,17 +92,17 @@ export const Courses: React.FC = () => {
           <div className="flex-1">
             <h2 className="text-3xl font-bold mb-4">専門家による監修</h2>
             <p className="text-gray-300 text-lg mb-6">
-              全てのカリキュラムは、経験豊富なヘルスケアスペシャリストによって開発・監修されています。（※現在、正式なプロフィールデータ待機中）
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
             <div className="flex items-center gap-4">
                <img 
                 src="https://picsum.photos/seed/nutritionist/100/100" 
-                alt="田中 優子" 
+                alt="山田 花子" 
                 className="w-16 h-16 rounded-full border-2 border-orange-500"
               />
               <div>
-                <div className="font-bold text-lg">田中 優子 先生</div>
-                <div className="text-sm text-orange-400">ヘルスケアスペシャリスト</div>
+                <div className="font-bold text-lg">山田 花子 先生</div>
+                <div className="text-sm text-orange-400">管理栄養士</div>
               </div>
             </div>
           </div>
