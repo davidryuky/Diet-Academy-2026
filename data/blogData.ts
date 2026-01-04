@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     title: "なぜ90%のダイエットは失敗するのか？痩せない原因となる「見えない習慣」",
     excerpt: "心理的な要因や、睡眠・ストレスなど、見落としがちな日常の習慣がダイエット成功の鍵を握っています。",
     category: "心理学・習慣",
-    date: "2025.10.15",
+    date: "2026.03.01",
     image: "https://picsum.photos/seed/dietfail/800/600",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">努力しているのに痩せない理由</h2>
@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     title: "空腹を我慢しない！食欲を自然にコントロールする食事の組み立て方",
     excerpt: "「食べない」ではなく「何を食べるか」。満腹感を得ながら無理なく痩せるための食事術を紹介します。",
     category: "食事術",
-    date: "2025.10.12",
+    date: "2026.03.01",
     image: "https://picsum.photos/seed/healthybowl/800/600",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">我慢は続かない。賢く食べる選択を。</h2>
@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
     title: "「代謝が悪い」は嘘？脂肪燃焼を左右する本当の要因とは",
     excerpt: "多くの人が信じている代謝の誤解を解き、日常生活で効率よく脂肪を燃やすための科学的な真実を解説。",
     category: "基礎知識",
-    date: "2025.10.08",
+    date: "2026.03.01",
     image: "https://picsum.photos/seed/metabolism/800/600",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">「年齢のせい」にする前に知っておくべきこと</h2>
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
     title: "食事制限 vs 運動：ダイエットに本当に効果があるのはどっち？",
     excerpt: "永遠のテーマに決着。減量において優先すべきはどちらなのか、効率的なバランスについて徹底比較します。",
     category: "検証",
-    date: "2025.10.05",
+    date: "2026.03.01",
     image: "https://picsum.photos/seed/runorfood/800/600",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">結論：減量なら「食事」、ボディメイクなら「運動」</h2>
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
     title: "ダイエットを始める前に！体が痩せる準備できていない「7つのサイン」",
     excerpt: "無理に始めても失敗します。まずは自分の体の状態をチェックし、痩せやすい土台を作るためのポイント。",
     category: "健康管理",
-    date: "2025.10.01",
+    date: "2026.03.01",
     image: "https://picsum.photos/seed/checkup/800/600",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">体がSOSを出していませんか？</h2>
@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     title: "リバウンド知らず！痩せた後の体重をキープする「教えられていない秘訣」",
     excerpt: "痩せることよりも難しい「維持すること」。多くのダイエットプログラムが語らない、長期的な体型維持の極意。",
     category: "維持・習慣",
-    date: "2025.09.28",
+    date: "2026.03.01",
     image: "https://picsum.photos/seed/balance/800/600",
     content: `
       <h2 class="text-2xl font-bold mb-4 text-gray-800">ダイエットは「目標体重達成」で終わりではない</h2>

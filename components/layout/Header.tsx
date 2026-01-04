@@ -32,16 +32,16 @@ export const Header: React.FC = () => {
 
       <header className="sticky top-0 z-50 w-full bg-white shadow-md">
         <div className="w-[92%] max-w-[1600px] mx-auto">
-          <div className="flex justify-between items-center h-28"> 
+          <div className="flex justify-between items-center h-20 md:h-28"> 
             {/* Left: Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer py-2" onClick={() => navigate('/')}>
               <div className="flex flex-col justify-center">
-                <span className="text-xs text-gray-500 tracking-widest mb-1">日本ダイエットアカデミー協会</span>
+                <span className="text-[10px] md:text-xs text-gray-500 tracking-widest mb-1">日本ダイエットアカデミー協会</span>
                 <div className="flex items-end">
                   {/* Logo Image */}
-                  <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-16 md:h-20 w-auto" />
+                  <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-12 md:h-20 w-auto" />
                   {/* Vertical 2026 */}
-                  <span className="text-xs font-bold text-orange-500 ml-3 font-serif leading-none tracking-widest opacity-80" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
+                  <span className="text-[10px] md:text-xs font-bold text-orange-500 ml-2 md:ml-3 font-serif leading-none tracking-widest opacity-80" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                     2026
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export const Header: React.FC = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-gray-600 hover:text-orange-500 focus:outline-none p-2"
               >
-                {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+                {isOpen ? <X className="h-6 w-6 md:h-8 md:w-8" /> : <Menu className="h-6 w-6 md:h-8 md:w-8" />}
               </button>
             </div>
           </div>
@@ -94,34 +94,36 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation Dropdown */}
         {isOpen && (
-          <div className="xl:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg h-[calc(100vh-112px)] overflow-y-auto">
-            <div className="px-6 py-6 space-y-4">
+          <div className="xl:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg h-[calc(100vh-80px)] overflow-y-auto">
+            <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
                 <NavLink 
                   key={link.path}
                   to={link.path} 
                   onClick={() => setIsOpen(false)} 
-                  className="block py-3 border-b border-gray-100 text-lg font-medium text-gray-800"
+                  className="block py-2.5 border-b border-gray-50 text-base font-medium text-gray-800 flex items-center justify-between"
                 >
-                  {link.name} <span className="text-xs text-gray-400 ml-2">{link.sub}</span>
+                  {link.name} <span className="text-[10px] text-gray-400 font-normal uppercase">{link.sub}</span>
                 </NavLink>
               ))}
               
-              <div className="mt-8 space-y-4 pt-4">
-                 <div className="relative mb-6">
+              <div className="mt-6 space-y-3 pt-2 bg-gray-50 -mx-4 px-4 py-6">
+                 <div className="relative mb-4">
                     <input 
                       type="text" 
                       placeholder="講座を検索" 
-                      className="pl-4 pr-10 py-3 border border-gray-300 rounded-full text-base w-full bg-gray-50"
+                      className="pl-4 pr-10 py-2.5 border border-gray-300 rounded-full text-sm w-full bg-white"
                     />
-                    <Search className="absolute right-4 top-3.5 h-5 w-5 text-gray-400" />
+                    <Search className="absolute right-4 top-3 h-4 w-4 text-gray-400" />
                   </div>
-                 <Button fullWidth size="lg" variant="secondary" onClick={() => { navigate('/seekers'); setIsOpen(false); }}>
-                   無料資料請求
-                 </Button>
-                 <Button fullWidth size="lg" variant="orange" onClick={() => { navigate('/pricing'); setIsOpen(false); }}>
-                   受講お申し込み
-                 </Button>
+                 <div className="grid grid-cols-2 gap-3">
+                   <Button fullWidth size="md" variant="secondary" onClick={() => { navigate('/seekers'); setIsOpen(false); }} className="text-xs">
+                     無料資料請求
+                   </Button>
+                   <Button fullWidth size="md" variant="orange" onClick={() => { navigate('/pricing'); setIsOpen(false); }} className="text-xs">
+                     受講お申し込み
+                   </Button>
+                 </div>
               </div>
             </div>
           </div>
