@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div className="mb-6 md:mb-0 text-center md:text-left">
              <div className="flex items-end justify-center md:justify-start">
-                <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-8 w-auto grayscale opacity-70" />
+                <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-14 md:h-16 w-auto grayscale opacity-70" />
                 <span className="text-sm font-bold text-gray-500 ml-2 tracking-widest font-serif" style={{ writingMode: 'vertical-rl' }}>
                   2026
                 </span>
