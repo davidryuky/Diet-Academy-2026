@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { Sidebar } from '../components/layout/Sidebar';
-import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight } from 'lucide-react';
+import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const Home: React.FC = () => {
@@ -292,41 +292,95 @@ export const Home: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Pricing List */}
+                {/* Pricing List Comparison Table */}
                 <div id="pricing" className="space-y-8">
                      <div className="text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-stone-800 font-serif-jp">講座コース紹介</h2>
-                        <p className="text-stone-600 text-xs md:text-sm mt-3">100%資格が取れるスペシャル講座がおすすめ</p>
+                        <h2 className="text-2xl md:text-3xl font-bold text-stone-800 font-serif-jp">講座コース比較</h2>
+                        <p className="text-stone-600 text-xs md:text-sm mt-3">目的に合わせて選べる3つの受講スタイル</p>
                     </div>
                     
-                    {/* Course Item */}
+                    <div className="grid md:grid-cols-3 gap-6 align-stretch">
+                    {/* Course Items Grid */}
                     {[
-                        { type: "基本講座", name: "基本講座", price: "56,500", theme: "stone", badge: "通常" },
-                        { type: "スペシャル講座", name: "スペシャル講座", price: "74,800", theme: "orange", badge: "試験免除" },
-                        { type: "スペシャル講座", name: "スペシャル講座 オンライン", price: "74,800", theme: "teal", badge: "スマホ対応" }
+                        { type: "基本講座", name: "基本講座", price: "56,500", theme: "stone", badge: "通常", recommended: false },
+                        { type: "スペシャル講座", name: "スペシャル講座", price: "74,800", theme: "orange", badge: "試験免除", recommended: true },
+                        { type: "スペシャル講座", name: "スペシャル講座 オンライン", price: "74,800", theme: "teal", badge: "スマホ対応", recommended: false }
                     ].map((course, idx) => (
-                        <div key={idx} className={`bg-white border rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row transition-all duration-300 hover:shadow-md ${course.theme === 'orange' ? 'border-orange-200' : course.theme === 'teal' ? 'border-teal-200' : 'border-stone-200'}`}>
-                            <div className="md:w-3/4 p-6 md:p-8 border-b md:border-b-0 md:border-r border-stone-100">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className={`text-[10px] md:text-xs text-white px-3 py-1 rounded-full font-bold ${course.theme === 'orange' ? 'bg-[#FF8C6B]' : course.theme === 'teal' ? 'bg-[#5D9B9B]' : 'bg-stone-500'}`}>{course.badge}</span>
-                                    <h3 className="font-bold text-lg md:text-xl text-stone-800">{course.name}</h3>
+                        <div key={idx} className={`relative flex flex-col bg-white border rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg ${course.recommended ? 'border-[#FF8C6B] shadow-md ring-1 ring-[#FF8C6B]/20 transform md:-translate-y-2 z-10' : 'border-stone-200'}`}>
+                            
+                            {/* Recommended Badge */}
+                            {course.recommended && (
+                                <div className="bg-[#FF8C6B] text-white text-[10px] font-bold text-center py-1 tracking-widest">
+                                    RECOMMENDED
                                 </div>
-                                <div className="flex gap-6">
-                                    <PlaceholderImage width="80px" height="80px" className="md:w-[100px] md:h-[100px] rounded-xl hidden sm:flex" color={course.theme === 'orange' ? 'bg-[#FFF0EB]' : course.theme === 'teal' ? 'bg-[#E0F2F1]' : 'bg-stone-100'} text="IMG" textColor={course.theme === 'orange' ? 'text-[#FF8C6B]' : course.theme === 'teal' ? 'text-[#5D9B9B]' : 'text-stone-400'} />
-                                    <ul className="text-xs text-stone-600 space-y-2 font-medium">
-                                        <li>受講期間: 6ヶ月</li>
-                                        <li>添削: 5回 {course.theme !== 'stone' && <span className="text-[#FF8C6B] font-bold">+ 卒業課題</span>}</li>
-                                        <li>教材: {course.theme === 'teal' ? 'デジタル' : 'テキスト一式'}</li>
-                                    </ul>
+                            )}
+
+                            {/* Header */}
+                            <div className={`p-6 text-center border-b ${course.recommended ? 'bg-[#FFF5F0] border-orange-100' : course.theme === 'teal' ? 'bg-[#E0F7FA]/30 border-teal-100' : 'bg-stone-50 border-stone-100'}`}>
+                                <span className={`inline-block text-[10px] px-3 py-1 rounded-full font-bold mb-3 ${course.theme === 'orange' ? 'bg-[#FF8C6B] text-white' : course.theme === 'teal' ? 'bg-[#5D9B9B] text-white' : 'bg-stone-400 text-white'}`}>
+                                    {course.badge}
+                                </span>
+                                <h3 className={`font-bold text-lg leading-tight ${course.recommended ? 'text-[#FF8C6B]' : 'text-stone-800'}`}>
+                                    {course.name}
+                                </h3>
+                            </div>
+
+                            {/* Price */}
+                            <div className="p-6 text-center border-b border-stone-100">
+                                <div className="text-stone-400 text-xs mb-1">受講料 (税込)</div>
+                                <div className={`text-2xl font-bold font-serif-jp ${course.theme === 'stone' ? 'text-stone-700' : course.theme === 'orange' ? 'text-[#FF8C6B]' : 'text-[#5D9B9B]'}`}>
+                                    {course.price}
+                                    <span className="text-xs font-normal ml-1 text-stone-500">円</span>
                                 </div>
                             </div>
-                            <div className={`md:w-1/4 p-6 md:p-8 flex flex-col justify-center items-center ${course.theme === 'orange' ? 'bg-[#FFF5F0]' : course.theme === 'teal' ? 'bg-[#E0F7FA]/30' : 'bg-stone-50'}`}>
-                                <div className="text-stone-500 text-xs mb-1">受講料</div>
-                                <div className={`text-3xl font-bold mb-4 font-serif-jp ${course.theme === 'stone' ? 'text-stone-700' : course.theme === 'orange' ? 'text-[#FF8C6B]' : 'text-[#5D9B9B]'}`}>{course.price}<span className="text-sm font-normal ml-1 text-stone-500">円</span></div>
-                                <Button size="md" variant={course.theme === 'stone' ? 'outline' : course.theme === 'orange' ? 'orange' : 'teal'} className="w-full text-sm rounded-lg shadow-none">申込む</Button>
+
+                            {/* Features List */}
+                            <div className="p-6 flex-grow space-y-4">
+                                <div className="flex items-start text-xs font-medium text-stone-600">
+                                    <Clock className="w-4 h-4 mr-2 text-stone-400 flex-shrink-0" />
+                                    <span>受講期間: <span className="font-bold">6ヶ月</span></span>
+                                </div>
+                                <div className="flex items-start text-xs font-medium text-stone-600">
+                                    <BookOpen className="w-4 h-4 mr-2 text-stone-400 flex-shrink-0" />
+                                    <span>教材: <span className="font-bold">{course.theme === 'teal' ? 'デジタル教材' : 'テキスト一式'}</span></span>
+                                </div>
+                                <div className="flex items-start text-xs font-medium text-stone-600">
+                                    {course.theme !== 'stone' ? (
+                                        <Check className="w-4 h-4 mr-2 text-[#FF8C6B] flex-shrink-0" />
+                                    ) : (
+                                        <X className="w-4 h-4 mr-2 text-stone-300 flex-shrink-0" />
+                                    )}
+                                    <span className={course.theme !== 'stone' ? 'text-stone-800 font-bold' : 'text-stone-400'}>
+                                        試験免除 (100%合格)
+                                    </span>
+                                </div>
+                                <div className="flex items-start text-xs font-medium text-stone-600">
+                                    {course.theme !== 'stone' ? (
+                                        <Check className="w-4 h-4 mr-2 text-[#FF8C6B] flex-shrink-0" />
+                                    ) : (
+                                        <X className="w-4 h-4 mr-2 text-stone-300 flex-shrink-0" />
+                                    )}
+                                    <span className={course.theme !== 'stone' ? 'text-stone-800 font-bold' : 'text-stone-400'}>
+                                        卒業と同時に資格取得
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* CTA */}
+                            <div className="p-6 pt-0 mt-auto">
+                                <Button 
+                                    fullWidth 
+                                    size="md" 
+                                    variant={course.theme === 'stone' ? 'outline' : course.theme === 'orange' ? 'orange' : 'teal'} 
+                                    className="text-sm rounded-lg shadow-none"
+                                    onClick={() => navigate('/pricing')}
+                                >
+                                    詳細・申込み
+                                </Button>
                             </div>
                         </div>
                     ))}
+                    </div>
                 </div>
 
                 {/* Supervisor */}
