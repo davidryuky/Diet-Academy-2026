@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'orange' | 'green';
+  variant?: 'primary' | 'secondary' | 'outline' | 'orange' | 'teal';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   fullWidth?: boolean;
 }
@@ -14,20 +14,29 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props 
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-bold transition-all duration-200 focus:outline-none shadow-sm rounded-full";
+  const baseStyles = "inline-flex items-center justify-center font-bold transition-all duration-300 focus:outline-none rounded-xl tracking-wide";
   
   const variants = {
-    primary: "bg-gradient-to-r from-orange-400 to-orange-600 text-white hover:from-orange-500 hover:to-orange-700 shadow-orange-200",
-    secondary: "bg-white text-orange-600 border-2 border-orange-500 hover:bg-orange-50",
-    outline: "bg-transparent border border-gray-300 text-gray-600 hover:bg-gray-50",
-    orange: "bg-[#ff6900] text-white hover:bg-[#e05e00] shadow-md",
-    green: "bg-[#81c784] text-white hover:bg-[#66bb6a] shadow-md",
+    // Primary: Soft Coral Gradient (Inviting, warm) - Removed colored shadow
+    primary: "bg-gradient-to-r from-[#FF8C6B] to-[#FFB088] text-white hover:from-[#FF7F59] hover:to-[#FFA070] shadow-sm hover:shadow-md",
+    
+    // Secondary: White with Coral Border
+    secondary: "bg-white text-[#FF8C6B] border-2 border-[#FF8C6B] hover:bg-orange-50",
+    
+    // Outline: Muted Stone
+    outline: "bg-transparent border border-stone-300 text-stone-700 hover:bg-stone-100 hover:text-stone-900",
+    
+    // Orange: Solid Coral/Terracotta (Good for CTAs) - Removed colored shadow
+    orange: "bg-[#FF8C6B] text-white hover:bg-[#FF7F59] shadow-sm hover:shadow-md",
+    
+    // Teal: Professional/Trust (Good for Instructors) - Removed colored shadow
+    teal: "bg-[#5D9B9B] text-white hover:bg-[#4D8B8B] shadow-sm hover:shadow-md",
   };
 
   const sizes = {
     sm: "px-4 py-1.5 text-xs",
-    md: "px-6 py-2.5 text-sm",
-    lg: "px-8 py-3 text-base",
+    md: "px-6 py-3 text-sm",
+    lg: "px-8 py-3.5 text-base",
     xl: "px-10 py-4 text-lg w-full md:w-auto",
   };
 
