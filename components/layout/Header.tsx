@@ -26,26 +26,14 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-[#FAF9F6] py-2 border-b border-stone-200 hidden md:block">
-        <div className="w-[92%] max-w-[1600px] mx-auto flex justify-end space-x-6 text-xs text-stone-600 font-medium">
-          <a href="#" className="hover:text-[#FF8C6B] transition-colors">配送・お支払い方法</a>
-          <span className="text-stone-300">|</span>
-          <a href="#" className="hover:text-[#FF8C6B] transition-colors">受講生専用ページ</a>
-          <span className="text-stone-300">|</span>
-          <a href="#" className="hover:text-[#FF8C6B] transition-colors">お問い合わせ</a>
-        </div>
-      </div>
-
       <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-sm border-b border-stone-200">
         <div className="w-[92%] max-w-[1600px] mx-auto relative">
           <div className="flex justify-between items-center h-20 md:h-24 transition-all duration-300"> 
             {/* Left: Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer py-2 group" onClick={() => navigate('/')}>
               <div className="flex flex-col justify-center">
-                <span className="hidden md:block text-xs text-stone-600 tracking-widest mb-1 group-hover:text-[#FF8C6B] transition-colors">日本ダイエットアカデミー協会</span>
                 <div className="flex items-end">
-                  <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-14 md:h-16 w-auto object-contain" />
+                  <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-16 md:h-20 w-auto object-contain" />
                   <span className="text-[10px] md:text-xs font-bold text-[#FF8C6B] ml-2 md:ml-3 font-serif-jp leading-none tracking-widest opacity-90" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                     2026
                   </span>
