@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
-// Fix: Import PlaceholderImage component
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Activity, Star, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Activity, Star, ChevronRight, CheckCircle2, Layers, Briefcase, Users, Monitor, Building } from 'lucide-react';
 import { courses } from '../data/coursesData';
 
 export const Courses: React.FC = () => {
@@ -19,6 +17,52 @@ export const Courses: React.FC = () => {
             <p className="mt-6 text-xl text-stone-500 max-w-2xl mx-auto leading-relaxed">
                 初心者からプロフェッショナルまで。一貫した理論に基づき、着実にステップアップできる学習環境を提供します。
             </p>
+        </div>
+      </div>
+
+      {/* Double License Special Section */}
+      <div className="max-w-7xl mx-auto px-4 mb-20">
+        <div className="bg-gradient-to-br from-[#FFF5F0] to-white rounded-[2.5rem] p-10 md:p-16 border border-[#FFD1C1] relative overflow-hidden shadow-sm">
+          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+            <Layers size={200} />
+          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-12 relative z-10">
+            <div className="lg:w-1/2">
+              <div className="inline-block px-4 py-1.5 bg-orange-500 text-white text-[10px] font-bold rounded-full mb-6 tracking-widest uppercase">
+                Special System
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
+                Double License<br />
+                <span className="text-[#FF8C6B]">2つの資格</span>を同時に取得
+              </h2>
+              <p className="text-stone-600 text-lg mb-8 leading-relaxed font-medium">
+                当アカデミーでは、一回のコース受講で、役割の異なる2つの認定資格を取得できる「ダブルライセンス制度」を採用しています。これにより、知識の幅を広げ、市場での信頼性を圧倒的に高めることが可能です。
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div className="bg-white p-5 rounded-xl border border-stone-100 flex items-center gap-4">
+                  <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-[#FF8C6B]">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-stone-400 font-bold uppercase">Role A</div>
+                    <div className="text-sm font-bold text-stone-800">ダイエットアドバイザー</div>
+                  </div>
+                </div>
+                <div className="bg-white p-5 rounded-xl border border-stone-100 flex items-center gap-4">
+                  <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-[#5D9B9B]">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-stone-400 font-bold uppercase">Role B</div>
+                    <div className="text-sm font-bold text-stone-800">シェイプアップ講師</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <PlaceholderImage height="350px" className="rounded-[2rem] shadow-xl" color="bg-stone-100" text="CERTIFICATE PREVIEW" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -81,6 +125,30 @@ export const Courses: React.FC = () => {
             </div>
           </div>
         ))}
+
+        {/* Versatility Grid Section */}
+        <div className="mt-24 py-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 font-serif-jp">資格を活かして 様々な場面で活躍できます</h2>
+            <div className="w-16 h-1 bg-[#FF8C6B] mx-auto mt-6 rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Personal Health", desc: "自分自身の健康維持・改善に", icon: Activity },
+              { title: "Family Care", desc: "家族や大切な人の栄養管理に", icon: Users },
+              { title: "Career Adv.", desc: "美容・健康関連業界への就職・転職", icon: Briefcase },
+              { title: "Online Business", desc: "SNSやオンラインでの相談・活動", icon: Monitor }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white p-10 rounded-3xl border border-stone-200 text-center hover:bg-stone-50 transition-colors shadow-sm">
+                <div className="bg-stone-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-stone-400">
+                  <item.icon size={32} />
+                </div>
+                <h4 className="font-bold text-lg mb-2 font-serif-jp">{item.title}</h4>
+                <p className="text-sm text-stone-500">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Supervision Highlight */}
         <div className="mt-24 bg-stone-900 rounded-[2.5rem] p-10 md:p-20 text-white flex flex-col lg:flex-row items-center gap-16 overflow-hidden relative">

@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Button } from '../components/common/Button';
-// Fix: Import PlaceholderImage component
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { useNavigate } from 'react-router-dom';
-import { Award, Briefcase, TrendingUp, ShieldCheck, ChevronRight, CheckCircle2, Globe, Building2 } from 'lucide-react';
+import { Award, Briefcase, TrendingUp, ShieldCheck, ChevronRight, CheckCircle2, Globe, Building2, Monitor, Users } from 'lucide-react';
 import { courses } from '../data/coursesData';
 
 export const Instructors: React.FC = () => {
@@ -61,8 +59,39 @@ export const Instructors: React.FC = () => {
         </div>
       </section>
 
+      {/* Career Versatility Section */}
+      <section className="py-24 bg-stone-50 border-y border-stone-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-800 font-serif-jp leading-tight mb-4">
+              資格を活かして 様々な場面で活躍できます
+            </h2>
+            <p className="text-stone-500 font-medium">専門家として、あなたの活躍の場は無限に広がります。</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Personal Trainer", desc: "ジムでの運動指導に高品質な食事指導をプラスし、クライアントの成果を加速させます。", icon: TrendingUp },
+              { title: "Online Consultant", desc: "場所を選ばず、ZoomやSNSを通じて全国の悩める人々にカウンセリングを提供。", icon: Monitor },
+              { title: "Seminar Instructor", desc: "地域のコミュニティや企業向けに、健康経営や食育に関するセミナーを主催。", icon: Users },
+              { title: "Salon Management", desc: "エステや美容サロンのメニューに「内面美容」としての栄養学を導入。", icon: Building2 },
+              { title: "Writer / Blogger", desc: "専門知識を活かし、Webメディアや雑誌でのコラム執筆、SNSでの情報発信。", icon: Briefcase },
+              { title: "Corporate Wellness", desc: "企業の福利厚生として、社員の健康管理やメタボ対策のアドバイザーとして活躍。", icon: ShieldCheck }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm hover:border-teal-200 transition-all flex flex-col items-center text-center">
+                <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 mb-6">
+                  <item.icon size={28} />
+                </div>
+                <h4 className="text-xl font-bold text-stone-800 mb-3 font-serif-jp">{item.title}</h4>
+                <p className="text-sm text-stone-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Senior & Professional Courses */}
-      <section className="bg-stone-50 py-24">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 space-y-16">
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-stone-800 font-serif-jp">プロフェッショナル・ラインナップ</h2>
@@ -110,36 +139,6 @@ export const Instructors: React.FC = () => {
                     </Button>
                 </div>
             </div>
-        </div>
-      </section>
-
-      {/* Career Fields */}
-      <section className="py-24 max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-stone-800 font-serif-jp">活躍できるフィールド</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                    "オンラインダイエット指導・コンサル",
-                    "パーソナルトレーニングジム",
-                    "エステ・美容サロン経営",
-                    "特定保健指導・健康経営アドバイザー",
-                    "専門スクール講師・セミナー主宰",
-                    "健康食品・サプリメント監修"
-                ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 p-4 bg-stone-50 rounded-xl border border-stone-100 font-bold text-sm text-stone-700">
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal-600"></div>
-                        {item}
-                    </div>
-                ))}
-            </div>
-            <div className="mt-12">
-                <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>今すぐキャリアへの投資を始める</Button>
-            </div>
-          </div>
-          <div className="lg:w-1/2 w-full">
-            <PlaceholderImage height="450px" className="rounded-3xl shadow-2xl w-full" color="bg-stone-100" text="CAREER IMAGE" />
-          </div>
         </div>
       </section>
 

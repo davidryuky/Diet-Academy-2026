@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { Sidebar } from '../components/layout/Sidebar';
-import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck } from 'lucide-react';
+import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck, Award, Layers, Zap, Monitor, Heart, GraduationCap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { courses } from '../data/coursesData';
 
@@ -41,7 +41,7 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Course Tiers Overview */}
+      {/* Course Tiers Quick Access */}
       <div className="py-20 bg-white">
           <div className="w-[92%] max-w-[1600px] mx-auto">
               <div className="text-center mb-16">
@@ -93,68 +93,6 @@ export const Home: React.FC = () => {
           </div>
       </div>
 
-      {/* Separation Path: Seekers vs Instructors */}
-      <div className="bg-[#FAF9F6] py-20 border-y border-stone-200">
-        <div className="w-[92%] max-w-[1600px] mx-auto">
-            <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-4 font-serif-jp">
-                    あなたの「目的」はどちらですか？
-                </h2>
-                <div className="w-12 h-1 bg-[#FF8C6B] mx-auto rounded-full opacity-60"></div>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-                {/* For Seekers */}
-                <div 
-                    onClick={() => navigate('/seekers')}
-                    className="group relative overflow-hidden rounded-3xl bg-white border border-stone-200 hover:border-orange-200 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl"
-                >
-                    <div className="p-8 md:p-12">
-                        <div className="flex justify-between items-start mb-6">
-                            <div className="bg-orange-50 text-[#FF8C6B] text-xs font-bold px-4 py-2 rounded-full border border-orange-100">
-                                自分磨き・家族の健康
-                            </div>
-                        </div>
-                        <h3 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">
-                            「自分」を変える。<br/>
-                            <span className="text-[#FF8C6B]">一生モノ</span>の美しさを。
-                        </h3>
-                        <p className="text-stone-600 mb-8 text-base leading-relaxed font-medium">
-                            流行に左右されない、科学的な栄養学と習慣化メソッドを。まずはレギュラーコースから、正しい知識の基礎を固めましょう。
-                        </p>
-                        <div className="flex items-center text-[#FF8C6B] font-bold group-hover:translate-x-2 transition-transform">
-                            個人向けページへ <ArrowRight size={20} className="ml-2" />
-                        </div>
-                    </div>
-                </div>
-
-                {/* For Instructors */}
-                <div 
-                    onClick={() => navigate('/instructors')}
-                    className="group relative overflow-hidden rounded-3xl bg-white border border-stone-200 hover:border-teal-200 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl"
-                >
-                    <div className="p-8 md:p-12">
-                        <div className="flex justify-between items-start mb-6">
-                            <div className="bg-teal-50 text-[#5D9B9B] text-xs font-bold px-4 py-2 rounded-full border border-teal-100">
-                                指導者・ビジネス・独立
-                            </div>
-                        </div>
-                        <h3 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">
-                            「仕事」にする。<br/>
-                            <span className="text-[#5D9B9B]">信頼</span>されるプロへ。
-                        </h3>
-                        <p className="text-stone-600 mb-8 text-base leading-relaxed font-medium">
-                            シニア・プロフェッショナルコースで、他者を導くスキルを証明。副業から本業、スクール運営まで、あなたの可能性を最大化します。
-                        </p>
-                        <div className="flex items-center text-[#5D9B9B] font-bold group-hover:translate-x-2 transition-transform">
-                            プロ・講師向けページへ <ArrowRight size={20} className="ml-2" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-
       {/* Main Content Area with Sidebar */}
       <div className="w-[92%] max-w-[1600px] mx-auto py-20 flex flex-col lg:flex-row gap-16">
           
@@ -162,11 +100,11 @@ export const Home: React.FC = () => {
               <Sidebar />
           </aside>
 
-          <main className="flex-1 space-y-24">
+          <main className="flex-1 space-y-20">
               
-                {/* 100% Acquisition Appeal */}
+                {/* 1. 100% Acquisition Appeal */}
                 <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-stone-200 text-center">
-                    <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-8 font-serif-jp leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-8 font-serif-jp leading-tight">
                         在宅・オンラインで完結。<br />
                         <span className="text-[#FF8C6B]">100%資格取得</span>が可能な学習システム
                     </h2>
@@ -176,12 +114,69 @@ export const Home: React.FC = () => {
                             { title: "試験免除制度", icon: ShieldCheck, text: "スペシャル講座なら課題提出で認定証を発行。" },
                             { title: "無期限サポート", icon: Users, text: "取得後も、最新情報の提供や質問対応を継続。" }
                         ].map((item, idx) => (
-                            <div key={idx} className="p-6">
-                                <item.icon className="mx-auto text-[#FF8C6B] mb-4" size={40} />
-                                <h4 className="font-bold text-lg mb-2 font-serif-jp">{item.title}</h4>
-                                <p className="text-sm text-stone-500">{item.text}</p>
+                            <div key={idx} className="p-4">
+                                <item.icon className="mx-auto text-[#FF8C6B] mb-4" size={32} />
+                                <h4 className="font-bold text-base mb-2 font-serif-jp">{item.title}</h4>
+                                <p className="text-xs text-stone-500">{item.text}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* 2. Double License (New Location) */}
+                <div className="bg-gradient-to-br from-[#FFF5F0] to-white rounded-3xl p-8 md:p-12 border border-[#FFD1C1] relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-8 opacity-5">
+                        <Layers size={140} />
+                    </div>
+                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                        <div className="md:w-2/3">
+                            <span className="bg-[#FF8C6B] text-white text-[10px] font-bold px-3 py-1 rounded-full mb-4 inline-block">Double License</span>
+                            <h3 className="text-2xl md:text-3xl font-bold text-stone-800 mb-4 font-serif-jp">2つの資格を同時に取得</h3>
+                            <p className="text-stone-600 text-sm leading-relaxed font-medium mb-6">
+                                当アカデミーの講座は、一度の学習で役割の異なる2つの認定資格を取得できる「ダブルライセンス制度」を採用。専門性の証明が2倍になり、活動の幅が飛躍的に広がります。
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center gap-2 text-stone-700 bg-white/60 px-4 py-2 rounded-lg border border-stone-100 text-xs font-bold">
+                                    <Award size={14} className="text-[#FF8C6B]" /> ダイエットアドバイザー
+                                </div>
+                                <div className="flex items-center gap-2 text-stone-700 bg-white/60 px-4 py-2 rounded-lg border border-stone-100 text-xs font-bold">
+                                    <Award size={14} className="text-[#5D9B9B]" /> シェイプアップ講師
+                                </div>
+                            </div>
+                        </div>
+                        <div className="md:w-1/3 flex justify-center">
+                            <PlaceholderImage height="160px" width="160px" color="bg-white/40" text="CERTIFICATE" className="rounded-2xl border-2 border-dashed border-orange-200" />
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3. Versatility Section (New Location) */}
+                <div className="bg-white rounded-3xl p-8 md:p-12 border border-stone-200 shadow-sm">
+                    <div className="text-center mb-10">
+                        <h3 className="text-2xl md:text-3xl font-bold text-stone-800 font-serif-jp">
+                            資格を活かして 様々な場面で活躍できます
+                        </h3>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        {[
+                            { title: "美容・サロン", text: "付加価値の向上", icon: Sparkles },
+                            { title: "ジム・教育", text: "指導力の証明", icon: TrendingUp },
+                            { title: "オンライン", text: "SNS・副業展開", icon: Monitor },
+                            { title: "家庭・健康", text: "一生モノの習慣", icon: Heart }
+                        ].map((item, idx) => (
+                            <div key={idx} className="text-center group">
+                                <div className="w-12 h-12 bg-stone-50 rounded-2xl flex items-center justify-center text-[#FF8C6B] mx-auto mb-4 group-hover:bg-[#FF8C6B] group-hover:text-white transition-all duration-300">
+                                    <item.icon size={22} />
+                                </div>
+                                <h4 className="text-sm font-bold text-stone-800 mb-1 font-serif-jp">{item.title}</h4>
+                                <p className="text-[10px] text-stone-400 font-medium">{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-10 pt-8 border-t border-stone-100 flex justify-center">
+                        <Button variant="outline" size="md" onClick={() => navigate('/methods')}>
+                            詳しい活用シーンを見る <ArrowRight size={14} className="ml-2" />
+                        </Button>
                     </div>
                 </div>
 
@@ -227,6 +222,28 @@ export const Home: React.FC = () => {
                 </div>
 
           </main>
+      </div>
+
+      {/* Path Choice (Bottom) */}
+      <div className="bg-[#FAF9F6] py-20 border-t border-stone-200">
+        <div className="w-[92%] max-w-[1600px] mx-auto">
+            <div className="text-center mb-12">
+                <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-4 font-serif-jp">
+                    あなたの「目的」はどちらですか？
+                </h2>
+                <div className="w-12 h-1 bg-[#FF8C6B] mx-auto rounded-full opacity-60"></div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+                <div onClick={() => navigate('/seekers')} className="group relative overflow-hidden rounded-3xl bg-white border border-stone-200 hover:border-orange-200 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl p-8 md:p-12">
+                    <h3 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">「自分」を変える。<br/><span className="text-[#FF8C6B]">一生モノ</span>の美しさを。</h3>
+                    <div className="flex items-center text-[#FF8C6B] font-bold group-hover:translate-x-2 transition-transform">個人向けページへ <ArrowRight size={20} className="ml-2" /></div>
+                </div>
+                <div onClick={() => navigate('/instructors')} className="group relative overflow-hidden rounded-3xl bg-white border border-stone-200 hover:border-teal-200 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl p-8 md:p-12">
+                    <h3 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">「仕事」にする。<br/><span className="text-[#5D9B9B]">信頼</span>されるプロへ。</h3>
+                    <div className="flex items-center text-[#5D9B9B] font-bold group-hover:translate-x-2 transition-transform">プロ・講師向けページへ <ArrowRight size={20} className="ml-2" /></div>
+                </div>
+            </div>
+        </div>
       </div>
 
       {/* Floating CTA (Mobile) */}
