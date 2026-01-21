@@ -1,126 +1,155 @@
+
 import React from 'react';
 import { Button } from '../components/common/Button';
+// Fix: Import PlaceholderImage component
+import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { useNavigate } from 'react-router-dom';
-import { Award, Briefcase, TrendingUp, ShieldCheck } from 'lucide-react';
+import { Award, Briefcase, TrendingUp, ShieldCheck, ChevronRight, CheckCircle2, Globe, Building2 } from 'lucide-react';
+import { courses } from '../data/coursesData';
 
 export const Instructors: React.FC = () => {
   const navigate = useNavigate();
+  const seniorCourse = courses[1];
+  const proCourse = courses[2];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Banner */}
-      <div className="relative bg-orange-600 h-80">
-        <img 
-          src="https://picsum.photos/seed/fitnessclass/1600/600" 
-          alt="フィットネスインストラクター" 
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40"
-        />
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+      {/* Professional Hero */}
+      <div className="relative h-[600px] flex items-center bg-stone-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=1600&auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/80 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 text-white">
           <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold text-white mb-4">プロとして活躍するキャリア</h1>
-            <p className="text-xl text-orange-100">
-              ダイエットとボディメイクの専門家へ。W資格取得で即戦力としてのスキルを証明し、活動の場を広げましょう。
+            <span className="text-teal-500 font-bold tracking-[0.4em] text-xs uppercase mb-6 block">Professional Career Program</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 font-serif-jp leading-tight">
+              その経験を、<br /><span className="text-teal-500">信頼</span>という武器に変える。
+            </h1>
+            <p className="text-xl text-stone-400 mb-10 leading-relaxed font-medium">
+              ダイエットのプロとして。指導者、そして経営者へ。W資格取得と高度なマネジメントスキルで、市場価値を最大化します。
             </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>プロ向けコースを見る</Button>
+                <Button size="xl" variant="outline" className="border-white text-white hover:bg-white/10">資料請求（法人/個人事業）</Button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Why Choose Section */}
-      <section className="py-16 max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">当講座が選ばれる理由</h2>
-          <p className="text-gray-500 mt-2">キャリアを加速させる4つの強み</p>
+      {/* Why Professional Section */}
+      <section className="py-24 max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-800 font-serif-jp">選ばれる指導者であるために</h2>
+          <p className="text-stone-500 mt-4 font-medium">知識だけで終わらせない、現場で勝てる「実戦スキル」を証明。</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="text-center p-6 border rounded-lg hover:shadow-lg transition">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
-              <Award size={32} />
-            </div>
-            <h3 className="text-lg font-bold mb-2">W資格取得</h3>
-            <p className="text-sm text-gray-600">ダイエットアドバイザー + シェイプアップインストラクターの2つの資格を同時に取得可能。</p>
-          </div>
-          <div className="text-center p-6 border rounded-lg hover:shadow-lg transition">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
-              <ShieldCheck size={32} />
-            </div>
-            <h3 className="text-lg font-bold mb-2">100%合格保証</h3>
-            <p className="text-sm text-gray-600">「スペシャル講座」なら、課題を提出するだけで試験免除で資格が認定されます。</p>
-          </div>
-          <div className="text-center p-6 border rounded-lg hover:shadow-lg transition">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
-              <Briefcase size={32} />
-            </div>
-            <h3 className="text-lg font-bold mb-2">開業サポート</h3>
-            <p className="text-sm text-gray-600">技術だけでなく、自宅サロンの開業やオンライン指導のノウハウも学べます。</p>
-          </div>
-          <div className="text-center p-6 border rounded-lg hover:shadow-lg transition">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
-              <TrendingUp size={32} />
-            </div>
-            <h3 className="text-lg font-bold mb-2">成長する市場</h3>
-            <p className="text-sm text-gray-600">予防医学や健康管理への関心が高まっており、専門家の需要は急増しています。</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Career Possibilities */}
-      <section className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="https://picsum.photos/seed/consulting/800/600" 
-                alt="カウンセリング風景" 
-                className="rounded-xl shadow-2xl"
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-orange-500">活躍できるフィールド</h2>
-              <ul className="space-y-4">
-                <li className="flex items-center border-b border-gray-700 pb-2">
-                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                  <span>オンラインでのダイエット指導・コンサルティング</span>
-                </li>
-                <li className="flex items-center border-b border-gray-700 pb-2">
-                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                  <span>スポーツジム・フィットネスクラブ</span>
-                </li>
-                <li className="flex items-center border-b border-gray-700 pb-2">
-                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                  <span>エステサロン・美容サロン</span>
-                </li>
-                <li className="flex items-center border-b border-gray-700 pb-2">
-                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                  <span>カルチャースクール・セミナー講師</span>
-                </li>
-                <li className="flex items-center border-b border-gray-700 pb-2">
-                  <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                  <span>美容・健康系ライター、SNSインフルエンサー</span>
-                </li>
-              </ul>
-              <div className="mt-8">
-                <Button variant="primary" onClick={() => navigate('/pricing')}>キャリアへの投資を始める</Button>
+          {[
+            { icon: Award, title: "高度な認定資格", text: "「教える」ための心理学と、科学的根拠に基づいた指導メソッドを習得。" },
+            { icon: ShieldCheck, title: "100%合格保証", text: "現場に集中できるよう、スペシャル講座では課題提出で確実な資格取得を支援。" },
+            { icon: Building2, title: "独立・開業支援", text: "スクール運営、サロン開設、リスク管理などビジネスに必要な知識をパッケージ。" },
+            { icon: Globe, title: "広がるフィールド", text: "オンライン指導、執筆、セミナー講師。全国どこからでもプロとして活躍。" }
+          ].map((item, idx) => (
+            <div key={idx} className="p-10 border border-stone-200 rounded-3xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 mb-6 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                <item.icon size={32} />
               </div>
+              <h3 className="text-xl font-bold mb-4 text-stone-800 font-serif-jp">{item.title}</h3>
+              <p className="text-sm text-stone-500 leading-relaxed font-medium">{item.text}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Senior & Professional Courses */}
+      <section className="bg-stone-50 py-24">
+        <div className="max-w-7xl mx-auto px-4 space-y-16">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-stone-800 font-serif-jp">プロフェッショナル・ラインナップ</h2>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-10">
+                {/* Senior Course */}
+                <div className="bg-white rounded-[2rem] p-10 md:p-14 border border-stone-200 shadow-sm flex flex-col">
+                    <div className="flex-grow">
+                        <span className="text-teal-600 font-bold tracking-widest text-xs uppercase mb-2 block">{seniorCourse.level}</span>
+                        <h3 className="text-3xl font-bold text-stone-800 mb-6 font-serif-jp">{seniorCourse.name}</h3>
+                        <p className="text-stone-500 mb-8 font-medium leading-relaxed">{seniorCourse.description}</p>
+                        <div className="space-y-4 mb-10">
+                            {seniorCourse.features.map((f, i) => (
+                                <div key={i} className="flex items-center gap-3 text-sm font-bold text-stone-700">
+                                    <CheckCircle2 className="text-teal-600" size={18} /> {f}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <Button variant="teal" fullWidth size="lg" onClick={() => navigate('/courses')}>
+                        指導者向け詳細を見る
+                    </Button>
+                </div>
+
+                {/* Professional Course */}
+                <div className="bg-stone-900 text-white rounded-[2rem] p-10 md:p-14 border border-stone-800 shadow-xl flex flex-col relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                        <TrendingUp size={150} />
+                    </div>
+                    <div className="flex-grow relative z-10">
+                        <span className="text-teal-400 font-bold tracking-widest text-xs uppercase mb-2 block">{proCourse.level}</span>
+                        <h3 className="text-3xl font-bold text-white mb-6 font-serif-jp">{proCourse.name}</h3>
+                        <p className="text-stone-400 mb-8 font-medium leading-relaxed">{proCourse.description}</p>
+                        <div className="space-y-4 mb-10">
+                            {proCourse.features.map((f, i) => (
+                                <div key={i} className="flex items-center gap-3 text-sm font-bold text-stone-200">
+                                    <CheckCircle2 className="text-teal-400" size={18} /> {f}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <Button variant="teal" fullWidth size="lg" className="relative z-10" onClick={() => navigate('/courses')}>
+                        経営・責任者向け詳細を見る
+                    </Button>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Career Fields */}
+      <section className="py-24 max-w-7xl mx-auto px-4">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="lg:w-1/2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-stone-800 font-serif-jp">活躍できるフィールド</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                    "オンラインダイエット指導・コンサル",
+                    "パーソナルトレーニングジム",
+                    "エステ・美容サロン経営",
+                    "特定保健指導・健康経営アドバイザー",
+                    "専門スクール講師・セミナー主宰",
+                    "健康食品・サプリメント監修"
+                ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-3 p-4 bg-stone-50 rounded-xl border border-stone-100 font-bold text-sm text-stone-700">
+                        <div className="w-1.5 h-1.5 rounded-full bg-teal-600"></div>
+                        {item}
+                    </div>
+                ))}
+            </div>
+            <div className="mt-12">
+                <Button size="xl" variant="teal" onClick={() => navigate('/pricing')}>今すぐキャリアへの投資を始める</Button>
+            </div>
+          </div>
+          <div className="lg:w-1/2 w-full">
+            <PlaceholderImage height="450px" className="rounded-3xl shadow-2xl w-full" color="bg-stone-100" text="CAREER IMAGE" />
           </div>
         </div>
       </section>
 
-      {/* Curriculum Highlight */}
-      <section className="py-16 max-w-5xl mx-auto px-4">
-        <div className="bg-orange-50 rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            未経験から最短2ヶ月でプロへ
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            当スクールのハイブリッド学習システムにより、働きながらでも無理なく学習可能です。
-            受講生の92%が専門知識ゼロからスタートし、現在プロとして活躍しています。
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button onClick={() => navigate('/courses')}>カリキュラム詳細</Button>
-            <Button variant="outline" onClick={() => navigate('/methods')}>学習方法について</Button>
-          </div>
+      {/* Message Area */}
+      <section className="bg-stripe py-24 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-8 font-serif-jp">最短で確かな信頼を築く、究極のロードマップ</h2>
+            <p className="text-stone-500 leading-loose text-lg font-medium">
+                当アカデミーのプロフェッショナルプログラムは、受講生の92%が専門知識ゼロからスタート。体系化されたステップアップにより、短期間で「教えられるプロ」としての自信と資格を手にしています。
+            </p>
         </div>
       </section>
     </div>

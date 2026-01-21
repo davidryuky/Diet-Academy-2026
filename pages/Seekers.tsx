@@ -1,120 +1,113 @@
 import React from 'react';
 import { Button } from '../components/common/Button';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Scale, Smile, Clock } from 'lucide-react';
+import { Heart, Scale, Smile, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
+import { courses } from '../data/coursesData';
 
 export const Seekers: React.FC = () => {
   const navigate = useNavigate();
+  const regularCourse = courses[0];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Banner */}
-      <div className="relative bg-green-600 h-80">
-        <img 
-          src="https://picsum.photos/seed/healthyfood/1600/600" 
-          alt="健康的な食事" 
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40"
-        />
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+      {/* Dynamic Hero */}
+      <div className="relative h-[550px] flex items-center bg-[#FFF9F6]">
+        <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_#FFD1C1_0%,_transparent_60%)] opacity-30"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10">
           <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold text-white mb-4">理想の自分に出会うために</h1>
-            <p className="text-xl text-green-100">
-              単なる減量ではありません。活力あふれる生活と、体が本当に求めているものを理解するための学びです。
+            <span className="text-[#FF8C6B] font-bold tracking-[0.2em] text-sm uppercase mb-6 block">For Your Personal Life</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
+              「我慢」のダイエットを、<br /><span className="text-[#FF8C6B]">「学び」のライフスタイル</span>へ。
+            </h1>
+            <p className="text-xl text-stone-600 mb-10 leading-relaxed font-medium">
+              自分らしく、心地よく、理想の体型を維持するための科学的な知識。レギュラーコースで、一生モノの健康習慣を身につけませんか。
             </p>
+            <div className="flex gap-4">
+                <Button size="xl" variant="orange" onClick={() => navigate('/pricing')}>コース詳細を見る</Button>
+                <Button size="xl" variant="outline" className="bg-white/50 backdrop-blur-sm">まずは資料請求</Button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Benefits Grid */}
-      <section className="py-16 max-w-7xl mx-auto px-4">
+      {/* Philosophy Section */}
+      <section className="py-24 max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">私たちが提供するのは「解決力」です</h2>
+            <p className="text-stone-500 max-w-2xl mx-auto">一時的な減量ではなく、生涯にわたって理想の状態をコントロールできる「知識の力」を提供します。</p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-green-300 transition-colors">
-            <Scale className="h-10 w-10 text-green-600 mb-4" />
-            <h3 className="text-lg font-bold mb-2">無理のない体重管理</h3>
-            <p className="text-gray-600 text-sm">極端な食事制限ではなく、科学的根拠に基づいた健康的な痩せ方を学びます。</p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-green-300 transition-colors">
-            <Heart className="h-10 w-10 text-green-600 mb-4" />
-            <h3 className="text-lg font-bold mb-2">家族の健康を守る</h3>
-            <p className="text-gray-600 text-sm">パートナーや子供のために、栄養バランスの取れた食事プランを作成できます。</p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-green-300 transition-colors">
-            <Smile className="h-10 w-10 text-green-600 mb-4" />
-            <h3 className="text-lg font-bold mb-2">自信を取り戻す</h3>
-            <p className="text-gray-600 text-sm">確かな結果を出すことで、鏡を見るのが楽しくなり、自己肯定感が高まります。</p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:border-green-300 transition-colors">
-            <Clock className="h-10 w-10 text-green-600 mb-4" />
-            <h3 className="text-lg font-bold mb-2">マイペース学習</h3>
-            <p className="text-gray-600 text-sm">1日30分、自宅で好きな時間に学習可能。忙しい方でも続けられます。</p>
-          </div>
+          {[
+            { icon: Scale, title: "リバウンド卒業", text: "無理な制限ではなく、代謝の仕組みを理解することで自然と維持できる体へ。" },
+            { icon: Heart, title: "家族の健康管理", text: "自分だけでなく、大切な人のための栄養バランスや献立作成をマスター。" },
+            { icon: Smile, title: "揺るぎない自信", text: "科学的な裏付けがあるから、情報に振り回されず自分の判断に自信が持てます。" },
+            { icon: Clock, title: "スキマ時間学習", text: "家事や育児の合間に、1日15分からの学習で着実にスキルアップ。" }
+          ].map((item, idx) => (
+            <div key={idx} className="p-8 bg-white rounded-3xl border border-stone-100 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all duration-300">
+              <item.icon className="h-10 w-10 text-[#FF8C6B] mb-6" strokeWidth={1.5} />
+              <h3 className="text-lg font-bold mb-4 text-stone-800 font-serif-jp">{item.title}</h3>
+              <p className="text-stone-500 text-sm leading-relaxed">{item.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Content Preview */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">具体的に何を学ぶの？</h2>
-            <ul className="space-y-4">
-              {[
-                "肥満と痩身のメカニズム",
-                "基礎栄養学と応用栄養学",
-                "理想的な献立作成の実践",
-                "自宅でできる簡単エクササイズ (シェイプアップ)",
-                "食欲をコントロールする心理学"
-              ].map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xs mr-3 mt-0.5">
-                    {index + 1}
-                  </div>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
-              <Button onClick={() => navigate('/courses')}>講座詳細を見る</Button>
+      {/* Featured Course: Regular */}
+      <section className="bg-stone-50 py-24">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-stone-200 flex flex-col lg:flex-row">
+            <div className="lg:w-2/5 bg-gradient-to-br from-[#FF8C6B] to-[#FFB088] p-12 text-white flex flex-col justify-center">
+                <span className="text-white/80 font-bold tracking-widest text-xs uppercase mb-4">Recommended For Beginners</span>
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif-jp leading-tight">Diet Master<br /><span className="text-2xl opacity-90 font-sans">レギュラーコース</span></h2>
+                <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
+                  まずはここから。ダイエットの基礎から応用まで、実践的な知識を網羅した人気No.1コース。
+                </p>
+                <ul className="space-y-4 mb-10">
+                    {regularCourse.features.map((f, i) => (
+                        <li key={i} className="flex items-center gap-3 text-sm font-bold">
+                            <CheckCircle2 size={18} className="text-white" /> {f}
+                        </li>
+                    ))}
+                </ul>
+                <Button variant="outline" className="bg-white/20 border-white text-white hover:bg-white hover:text-[#FF8C6B]" onClick={() => navigate('/courses')}>
+                    詳細を見る <ArrowRight className="ml-2" size={16} />
+                </Button>
+            </div>
+            <div className="lg:w-3/5 p-12 md:p-16 flex flex-col justify-center">
+                 <h3 className="text-2xl font-bold text-stone-800 mb-8 font-serif-jp">具体的に学べること</h3>
+                 <div className="grid md:grid-cols-2 gap-8">
+                     {[
+                        { title: "代謝のメカニズム", desc: "なぜ太るのか、どうすれば効率よく脂肪が燃えるのか、生理学的に学びます。" },
+                        { title: "賢い栄養選択", desc: "カロリーだけではない、血糖値や栄養素の質を考慮した食材選びの極意。" },
+                        { title: "メンタルコントロール", desc: "挫折しやすい食欲の波を、心理学の知見からコントロールする技術。" },
+                        { title: "継続の仕組みづくり", desc: "「頑張る」のをやめて、日常のルーティンにダイエットを組み込む方法。" }
+                     ].map((item, idx) => (
+                        <div key={idx}>
+                            <h4 className="font-bold text-stone-800 mb-2 flex items-center text-sm">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#FF8C6B] mr-2"></span>
+                                {item.title}
+                            </h4>
+                            <p className="text-stone-500 text-xs leading-relaxed">{item.desc}</p>
+                        </div>
+                     ))}
+                 </div>
+                 <div className="mt-12 p-8 bg-stone-50 rounded-2xl border border-stone-100 italic text-stone-600 text-sm leading-relaxed">
+                    「産後、何をしても体重が戻らなかった私が、このコースでの学びを通じて自分の体の声を聞けるようになりました。数値以上に、心に余裕ができたことが一番の収穫です。」 — <span className="font-bold text-stone-800">30代受講生 Sさん</span>
+                 </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-green-200 rounded-xl transform rotate-2"></div>
-            <img 
-              src="https://picsum.photos/seed/yoga/800/600" 
-              alt="ヨガをする女性" 
-              className="relative rounded-xl shadow-lg"
-            />
-          </div>
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-16 max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-2xl font-bold mb-8">受講生の成功ストーリー</h2>
-        <div className="bg-white p-8 rounded-2xl shadow-lg relative">
-          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-            <img 
-              src="https://picsum.photos/seed/person1/100/100" 
-              alt="受講生" 
-              className="w-16 h-16 rounded-full border-4 border-white shadow-md"
-            />
-          </div>
-          <p className="mt-6 text-gray-600 italic text-lg leading-loose">
-            「産後太りを解消したくて受講しました。半年で15kgの減量に成功しただけでなく、家族全員の食生活も改善できました。専門的な内容も噛み砕いて解説されているので、知識ゼロからでも安心して学べました。」
-          </p>
-          <div className="mt-4 font-bold text-gray-900">佐藤 まりな 様 (30代)</div>
-          <div className="text-sm text-gray-500">ダイエットアドバイザー講座 修了</div>
+      {/* CTA Bottom */}
+      <section className="py-24 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 font-serif-jp text-stone-800">新しい自分への第一歩、<br />今日から始めませんか？</h2>
+        <div className="flex justify-center gap-4 px-4">
+            <Button size="xl" variant="orange" onClick={() => navigate('/pricing')}>受講プランをチェック</Button>
+            <Button size="xl" variant="outline" onClick={() => navigate('/')}>ホームへ戻る</Button>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-green-600 py-12 text-center text-white">
-        <h2 className="text-3xl font-bold mb-4">今日から新しい自分へ</h2>
-        <p className="mb-8 max-w-2xl mx-auto">
-          申し込み後、すぐに学習を始められます。まずはコース内容をご確認ください。
-        </p>
-        <Button variant="primary" size="lg" className="bg-white text-green-700 hover:bg-gray-100" onClick={() => navigate('/pricing')}>
-          受講料・プランを見る
-        </Button>
       </section>
     </div>
   );

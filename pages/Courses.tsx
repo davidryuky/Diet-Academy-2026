@@ -1,123 +1,126 @@
+
 import React from 'react';
 import { Button } from '../components/common/Button';
+// Fix: Import PlaceholderImage component
+import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Activity } from 'lucide-react';
+import { BookOpen, Activity, Star, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { courses } from '../data/coursesData';
 
 export const Courses: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white pb-20">
-      <div className="bg-gray-50 py-12 mb-12 border-b">
+    <div className="min-h-screen bg-stone-50 pb-24">
+      <div className="bg-white py-16 mb-16 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-gray-900">取得可能な資格</h1>
-          <p className="mt-4 text-xl text-gray-500">
-            栄養士とフィットネス専門家によって開発された充実のカリキュラム
-          </p>
+            <span className="text-[#FF8C6B] font-bold tracking-[0.3em] uppercase text-xs block mb-4">Curriculum</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-800 font-serif-jp">全3レベルの認定資格</h1>
+            <p className="mt-6 text-xl text-stone-500 max-w-2xl mx-auto leading-relaxed">
+                初心者からプロフェッショナルまで。一貫した理論に基づき、着実にステップアップできる学習環境を提供します。
+            </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12">
-          
-          {/* Certification 1 */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-            <div className="bg-green-600 p-6 flex items-center justify-between text-white">
-              <h2 className="text-2xl font-bold">ダイエットアドバイザー</h2>
-              <BookOpen size={32} />
+      <div className="max-w-7xl mx-auto px-4 space-y-12">
+        {courses.map((course, idx) => (
+          <div 
+            key={course.id}
+            className={`flex flex-col lg:flex-row bg-white rounded-[2rem] overflow-hidden shadow-sm border border-stone-200 hover:shadow-xl transition-all duration-500 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+          >
+            {/* Visual Part */}
+            <div className={`lg:w-1/2 relative min-h-[350px] ${course.color} flex items-center justify-center`}>
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_0%,_transparent_100%)]"></div>
+                <div className="text-white text-center p-12 relative z-10">
+                    <course.icon size={120} strokeWidth={1} className="mx-auto mb-8 opacity-90" />
+                    <span className="inline-block px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold tracking-widest uppercase mb-4">
+                      LEVEL 0{idx + 1}
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-2 font-serif-jp">{course.name}</h2>
+                    <p className="text-white/80 font-bold tracking-widest">{course.subtitle}</p>
+                </div>
             </div>
-            <div className="p-8">
-              <p className="text-gray-600 mb-6">
-                食事指導のプロフェッショナルへ。エビデンスに基づいた栄養戦略を立て、クライアントのライフスタイルに合わせたアドバイスが可能になります。
-              </p>
-              
-              <h3 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">学習内容:</h3>
-              <ul className="space-y-2 mb-8">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>基礎代謝とカロリー計算の理論</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>栄養素の働きと代謝メカニズム</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>食行動の心理学とメンタルサポート</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>体質や目的に合わせた食事プラン作成</span>
-                </li>
-              </ul>
+
+            {/* Content Part */}
+            <div className="lg:w-1/2 p-8 md:p-14">
+                <div className="mb-8">
+                    <h3 className="text-xl font-bold text-stone-800 mb-4 flex items-center">
+                        <span className={`w-8 h-8 rounded-lg ${course.color} flex items-center justify-center text-white mr-3`}>
+                            <Star size={16} fill="currentColor" />
+                        </span>
+                        このコースの概要
+                    </h3>
+                    <p className="text-stone-600 leading-relaxed text-base font-medium">
+                        {course.description}
+                    </p>
+                </div>
+
+                <div className="mb-10">
+                    <h4 className="text-sm font-bold text-stone-400 tracking-widest uppercase mb-6 border-b border-stone-100 pb-2">主な学習カリキュラム</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {course.features.map((feature, i) => (
+                            <div key={i} className="flex items-center gap-3 text-stone-700 font-bold">
+                                <CheckCircle2 className={`${course.accent}`} size={18} />
+                                <span className="text-sm">{feature}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-stone-100">
+                    <div className="flex-1">
+                        <div className="text-xs text-stone-400 font-bold mb-1">受講料 (税込)</div>
+                        <div className={`text-3xl font-bold ${course.accent} font-serif-jp`}>
+                            {course.price}<span className="text-sm font-normal text-stone-500 ml-1">円</span>
+                        </div>
+                    </div>
+                    <Button variant={course.id === 'regular' ? 'orange' : 'teal'} size="lg" className="w-full sm:w-auto" onClick={() => navigate('/pricing')}>
+                        詳細・お申込み <ChevronRight className="ml-2" size={18} />
+                    </Button>
+                </div>
             </div>
           </div>
+        ))}
 
-          {/* Certification 2 */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-            <div className="bg-orange-500 p-6 flex items-center justify-between text-white">
-              <h2 className="text-2xl font-bold">シェイプアップインストラクター</h2>
-              <Activity size={32} />
-            </div>
-            <div className="p-8">
-              <p className="text-gray-600 mb-6">
-                美しいボディラインを作るための運動指導資格。栄養学に加え、機能的かつ美容的なエクササイズ処方を学びます。
-              </p>
-              
-              <h3 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">学習内容:</h3>
-              <ul className="space-y-2 mb-8">
-                <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">•</span>
-                  <span>筋肉の解剖学とバイオメカニクス基礎</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">•</span>
-                  <span>脂肪燃焼と筋肥大のためのトレーニング理論</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">•</span>
-                  <span>自宅でできるファンクショナルトレーニング</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 mr-2">•</span>
-                  <span>姿勢改善と動作の修正指導</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Supervision */}
-        <div className="mt-16 bg-gray-900 rounded-3xl p-8 md:p-16 text-white flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-4">専門家による監修</h2>
-            <p className="text-gray-300 text-lg mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        {/* Supervision Highlight */}
+        <div className="mt-24 bg-stone-900 rounded-[2.5rem] p-10 md:p-20 text-white flex flex-col lg:flex-row items-center gap-16 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 blur-[100px] rounded-full"></div>
+          <div className="flex-1 relative z-10">
+            <span className="text-orange-500 font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Our Quality</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif-jp leading-tight">専門家による<br />徹底した品質管理</h2>
+            <p className="text-stone-400 text-lg mb-10 leading-relaxed">
+              当アカデミーの教材は、単なる知識の羅列ではありません。現場で活躍する管理栄養士やトレーナーが、実際の成功事例と失敗事例を元に構築した、究極の実践メソッドです。
             </p>
-            <div className="flex items-center gap-4">
-               <img 
-                src="https://picsum.photos/seed/nutritionist/100/100" 
-                alt="山田 花子" 
-                className="w-16 h-16 rounded-full border-2 border-orange-500"
-              />
+            <div className="flex items-center gap-6">
+               <PlaceholderImage width="80px" height="80px" className="rounded-full border-2 border-orange-500/50" color="bg-stone-800" text="FACE" />
               <div>
-                <div className="font-bold text-lg">山田 花子 先生</div>
-                <div className="text-sm text-orange-400">管理栄養士</div>
+                <div className="font-bold text-xl font-serif-jp">山田 花子 先生</div>
+                <div className="text-sm text-orange-500 font-bold tracking-wider">日本ダイエットアカデミー協会 首席監修</div>
               </div>
             </div>
           </div>
-          <div className="flex-1">
-             <img 
-              src="https://picsum.photos/seed/studying/600/400" 
-              alt="教材イメージ" 
-              className="rounded-xl shadow-lg"
-            />
+          <div className="flex-1 w-full relative z-10">
+             <div className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl">
+                <PlaceholderImage height="300px" className="rounded-2xl opacity-80" color="bg-stone-800" text="CURRICULUM BOOK" />
+                <div className="mt-6 text-center">
+                    <p className="text-sm text-stone-500 mb-2">全コース共通の高品質なテキスト教材</p>
+                    <div className="flex justify-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-orange-500/50"></div>
+                        <div className="w-2 h-2 rounded-full bg-orange-500/20"></div>
+                    </div>
+                </div>
+             </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center">
-          <Button size="lg" onClick={() => navigate('/pricing')}>受講申込みへ進む</Button>
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl font-bold text-stone-800 mb-8 font-serif-jp">まずは自分に合ったコースを見つけましょう</h3>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button size="xl" variant="secondary" onClick={() => navigate('/seekers')}>個人向け案内</Button>
+              <Button size="xl" variant="teal" onClick={() => navigate('/instructors')}>プロ向け案内</Button>
+          </div>
         </div>
       </div>
     </div>
