@@ -36,7 +36,7 @@ function App() {
             <Route path="/methods" element={<Methods />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
-            <Route path="/demo" element={<CertificateDemo />} />
+            <Route path="/demo" element={<div className="certificate-demo-page"><CertificateDemo /></div>} />
           </Routes>
         </main>
         <Footer />
