@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { 
-  Menu, X, Search, FileText, Send, 
+  Menu, X, FileText, Send, 
   Home, Users, Briefcase, BookOpen, Monitor, CreditCard, ChevronRight 
 } from 'lucide-react';
 
@@ -62,17 +62,8 @@ export const Header: React.FC = () => {
               ))}
             </nav>
 
-            {/* Right: Search & CTAs (Desktop) */}
+            {/* Right: CTAs (Desktop) */}
             <div className="hidden md:flex items-center space-x-6">
-              <div className="relative hidden 2xl:block group">
-                <input 
-                  type="text" 
-                  placeholder="通信講座を検索" 
-                  className="pl-4 pr-10 py-2.5 border border-stone-300 bg-[#FAF9F6] rounded-full text-sm focus:outline-none focus:border-[#FF8C6B] focus:bg-white focus:ring-1 focus:ring-orange-200 w-48 transition-all duration-300 text-stone-700 placeholder:text-stone-400"
-                />
-                <Search className="absolute right-3 top-3 h-4 w-4 text-stone-500 group-hover:text-[#FF8C6B] transition-colors" />
-              </div>
-              
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => navigate('/seekers')}
@@ -118,15 +109,6 @@ export const Header: React.FC = () => {
         {isOpen && (
           <div className="xl:hidden absolute top-full left-0 w-full bg-white border-t border-stone-200 shadow-xl z-50 flex flex-col max-h-[calc(100vh-80px)] overflow-y-auto animate-in slide-in-from-top-2 duration-200">
              <div className="px-6 py-6 space-y-6">
-                <div className="relative">
-                    <input 
-                      type="text" 
-                      placeholder="キーワード検索..." 
-                      className="w-full pl-10 pr-4 py-3 bg-[#FAF9F6] border border-stone-300 rounded-xl text-sm focus:outline-none focus:border-[#FF8C6B] focus:ring-1 focus:ring-orange-200 transition-all text-stone-700"
-                    />
-                    <Search className="absolute left-3 top-3 text-stone-500" size={18} />
-                </div>
-
                 <nav className="flex flex-col">
                   {navLinks.map((link) => (
                     <NavLink

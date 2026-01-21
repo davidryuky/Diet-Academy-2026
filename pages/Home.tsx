@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../components/common/Button';
 import { PlaceholderImage } from '../components/common/PlaceholderImage';
 import { Sidebar } from '../components/layout/Sidebar';
-import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck, Award, Layers, Zap, Monitor, Heart, GraduationCap } from 'lucide-react';
+import { Users, BookOpen, Clock, Sparkles, TrendingUp, ArrowRight, Check, Star, ShieldCheck, Award, Layers, Zap, Monitor, Heart, GraduationCap, Briefcase } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { courses } from '../data/coursesData';
 
@@ -101,8 +101,64 @@ export const Home: React.FC = () => {
           </aside>
 
           <main className="flex-1 space-y-20">
+
+                {/* 1. Path Choice - REDESIGNED FOR LARGER IMPACT */}
+                <div className="space-y-12">
+                    <div className="text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-4 font-serif-jp leading-tight">
+                            あなたの「目的」はどちらですか？
+                        </h2>
+                        <div className="w-16 h-1 bg-[#FF8C6B] mx-auto rounded-full mb-8"></div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Seeker Path (Larger Block) */}
+                        <div 
+                          onClick={() => navigate('/seekers')}
+                          className="group relative overflow-hidden bg-white rounded-[2.5rem] p-10 md:p-14 border border-stone-200 hover:border-orange-300 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col justify-between min-h-[400px]"
+                        >
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full opacity-50 transition-transform group-hover:scale-110"></div>
+                            <div className="relative z-10">
+                                <div className="p-4 bg-orange-50 text-[#FF8C6B] inline-block rounded-2xl mb-8 group-hover:bg-[#FF8C6B] group-hover:text-white transition-colors duration-500">
+                                    <Users size={36} strokeWidth={1.5} />
+                                </div>
+                                <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
+                                    「自分」を<br />変える。
+                                </h3>
+                                <p className="text-stone-500 text-base leading-relaxed mb-8 max-w-xs font-medium">
+                                    一生モノの美しさと健康を手に入れたい個人の方はこちらへ。基礎から習慣化までサポート。
+                                </p>
+                            </div>
+                            <div className="relative z-10 flex items-center text-[#FF8C6B] text-lg font-bold group-hover:translate-x-2 transition-transform">
+                                個人向けページへ <ArrowRight size={24} className="ml-3" />
+                            </div>
+                        </div>
+
+                        {/* Instructor Path (Larger Block) */}
+                        <div 
+                          onClick={() => navigate('/instructors')}
+                          className="group relative overflow-hidden bg-white rounded-[2.5rem] p-10 md:p-14 border border-stone-200 hover:border-teal-300 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col justify-between min-h-[400px]"
+                        >
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full opacity-50 transition-transform group-hover:scale-110"></div>
+                            <div className="relative z-10">
+                                <div className="p-4 bg-teal-50 text-[#5D9B9B] inline-block rounded-2xl mb-8 group-hover:bg-[#5D9B9B] group-hover:text-white transition-colors duration-500">
+                                    <Briefcase size={36} strokeWidth={1.5} />
+                                </div>
+                                <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
+                                    「仕事」に<br />する。
+                                </h3>
+                                <p className="text-stone-500 text-base leading-relaxed mb-8 max-w-xs font-medium">
+                                    指導者として、信頼されるプロを目指す方はこちらへ。専門資格とビジネススキルを。
+                                </p>
+                            </div>
+                            <div className="relative z-10 flex items-center text-[#5D9B9B] text-lg font-bold group-hover:translate-x-2 transition-transform">
+                                プロ・講師向けページへ <ArrowRight size={24} className="ml-3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
               
-                {/* 1. 100% Acquisition Appeal */}
+                {/* 2. 100% Acquisition Appeal */}
                 <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-stone-200 text-center">
                     <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-8 font-serif-jp leading-tight">
                         在宅・オンラインで完結。<br />
@@ -123,7 +179,7 @@ export const Home: React.FC = () => {
                     </div>
                 </div>
 
-                {/* 2. Double License (New Location) */}
+                {/* 3. Double License */}
                 <div className="bg-gradient-to-br from-[#FFF5F0] to-white rounded-3xl p-8 md:p-12 border border-[#FFD1C1] relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-8 opacity-5">
                         <Layers size={140} />
@@ -150,7 +206,7 @@ export const Home: React.FC = () => {
                     </div>
                 </div>
 
-                {/* 3. Versatility Section (New Location) */}
+                {/* 4. Versatility Section */}
                 <div className="bg-white rounded-3xl p-8 md:p-12 border border-stone-200 shadow-sm">
                     <div className="text-center mb-10">
                         <h3 className="text-2xl md:text-3xl font-bold text-stone-800 font-serif-jp">
@@ -222,28 +278,6 @@ export const Home: React.FC = () => {
                 </div>
 
           </main>
-      </div>
-
-      {/* Path Choice (Bottom) */}
-      <div className="bg-[#FAF9F6] py-20 border-t border-stone-200">
-        <div className="w-[92%] max-w-[1600px] mx-auto">
-            <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-4 font-serif-jp">
-                    あなたの「目的」はどちらですか？
-                </h2>
-                <div className="w-12 h-1 bg-[#FF8C6B] mx-auto rounded-full opacity-60"></div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-                <div onClick={() => navigate('/seekers')} className="group relative overflow-hidden rounded-3xl bg-white border border-stone-200 hover:border-orange-200 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl p-8 md:p-12">
-                    <h3 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">「自分」を変える。<br/><span className="text-[#FF8C6B]">一生モノ</span>の美しさを。</h3>
-                    <div className="flex items-center text-[#FF8C6B] font-bold group-hover:translate-x-2 transition-transform">個人向けページへ <ArrowRight size={20} className="ml-2" /></div>
-                </div>
-                <div onClick={() => navigate('/instructors')} className="group relative overflow-hidden rounded-3xl bg-white border border-stone-200 hover:border-teal-200 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl p-8 md:p-12">
-                    <h3 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp">「仕事」にする。<br/><span className="text-[#5D9B9B]">信頼</span>されるプロへ。</h3>
-                    <div className="flex items-center text-[#5D9B9B] font-bold group-hover:translate-x-2 transition-transform">プロ・講師向けページへ <ArrowRight size={20} className="ml-2" /></div>
-                </div>
-            </div>
-        </div>
       </div>
 
       {/* Floating CTA (Mobile) */}
