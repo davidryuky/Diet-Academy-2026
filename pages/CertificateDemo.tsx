@@ -20,7 +20,7 @@ export const CertificateDemo: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-100 py-12 md:py-20 no-print-bg">
+    <div className="min-h-screen bg-stone-100 py-12 md:py-20">
       <div className="max-w-[1400px] mx-auto px-4 no-print">
         <div className="text-center mb-12">
           <span className="text-[#FF8C6B] font-bold tracking-widest text-xs uppercase mb-4 block">Beta Feature</span>
@@ -31,7 +31,7 @@ export const CertificateDemo: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           
           {/* Controls Panel */}
-          <div className="lg:col-span-4 space-y-6 order-2 lg:order-1 controls-panel">
+          <div className="lg:col-span-4 space-y-6 order-2 lg:order-1">
             <div className="bg-white rounded-3xl p-8 shadow-sm border border-stone-200">
               <h3 className="text-lg font-bold text-stone-800 mb-6 font-serif-jp flex items-center gap-2">
                 <User size={20} className="text-[#FF8C6B]" />
@@ -110,13 +110,13 @@ export const CertificateDemo: React.FC = () => {
                 <AwardIcon size={16} className="text-[#FF8C6B]" /> 認定証の取り扱いについて
               </h4>
               <p className="text-[11px] text-stone-500 leading-relaxed font-medium">
-                このデモ画面で生成された認定証はサンプルです。実際の資格取得には、各コースの全カリキュラム修了と試験合格が必要です。公式な認定証はマイページから正式に発行いただけます。
+                このデモ画面で生成された認定証はサンプルです。公式な認定証はマイページから正式に発行いただけます。
               </p>
             </div>
           </div>
 
           {/* Certificate Preview Panel */}
-          <div className="lg:col-span-8 order-1 lg:order-2 preview-panel">
+          <div className="lg:col-span-8 order-1 lg:order-2 preview-panel-container">
             <div className="sticky top-32">
               <div className="mb-4 flex items-center justify-between px-4 no-print">
                 <span className="text-xs font-bold text-stone-400 tracking-widest uppercase">Live Preview</span>
@@ -130,95 +130,93 @@ export const CertificateDemo: React.FC = () => {
               {/* The Certificate Canvas */}
               <div 
                 id="certificate-print-area"
-                className="relative w-full aspect-[1.414/1] bg-white shadow-2xl rounded-sm overflow-hidden p-[4%] border-[1px] border-stone-200 certificate-container"
+                className="relative w-full aspect-[1.414/1] bg-white shadow-2xl rounded-sm border border-stone-200 certificate-main-body"
                 style={{ 
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
-                  backgroundImage: 'white'
+                  backgroundColor: 'white'
                 }}
               >
                 {/* Ornate Border */}
-                <div className="absolute inset-0 p-[2%] pointer-events-none">
+                <div className="absolute inset-0 p-[2.5%] pointer-events-none">
                    <div className={`w-full h-full border-[10px] border-double ${selectedCourseId === 'regular' ? 'border-orange-200' : selectedCourseId === 'senior' ? 'border-teal-100' : 'border-indigo-100'} rounded-sm`}></div>
                    <div className={`absolute inset-[3.5%] border-[1px] ${selectedCourseId === 'regular' ? 'border-orange-300' : selectedCourseId === 'senior' ? 'border-teal-300' : 'border-indigo-300'} opacity-30`}></div>
                 </div>
 
-                {/* Corners Decor */}
-                <div className={`absolute top-[3%] left-[3%] w-20 h-20 border-t-2 border-l-2 ${selectedCourseId === 'regular' ? 'border-orange-400' : selectedCourseId === 'senior' ? 'border-teal-400' : 'border-indigo-400'}`}></div>
-                <div className={`absolute top-[3%] right-[3%] w-20 h-20 border-t-2 border-r-2 ${selectedCourseId === 'regular' ? 'border-orange-400' : selectedCourseId === 'senior' ? 'border-teal-400' : 'border-indigo-400'}`}></div>
-                <div className={`absolute bottom-[3%] left-[3%] w-20 h-20 border-b-2 border-l-2 ${selectedCourseId === 'regular' ? 'border-orange-400' : selectedCourseId === 'senior' ? 'border-teal-400' : 'border-indigo-400'}`}></div>
-                <div className={`absolute bottom-[3%] right-[3%] w-20 h-20 border-b-2 border-r-2 ${selectedCourseId === 'regular' ? 'border-orange-400' : selectedCourseId === 'senior' ? 'border-teal-400' : 'border-indigo-400'}`}></div>
-
                 {/* Content Container */}
-                <div className="relative w-full h-full flex flex-col items-center justify-between py-[4%] px-[8%] text-center">
+                <div className="relative w-full h-full flex flex-col items-center justify-between py-[5%] px-[10%] text-center">
                    
                    {/* Logo / Header */}
-                   <div className="mb-2">
-                      <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="Association Logo" className="h-10 md:h-16 mx-auto mb-2 grayscale brightness-50" />
-                      <div className="text-[9px] md:text-xs font-bold tracking-[0.4em] text-stone-400 uppercase">Japan Diet Academy Association</div>
+                   <div className="mb-1">
+                      <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="Association Logo" className="h-8 md:h-14 mx-auto mb-1 grayscale brightness-50" />
+                      <div className="text-[8px] md:text-[10px] font-bold tracking-[0.4em] text-stone-400 uppercase">Japan Diet Academy Association</div>
                    </div>
 
                    {/* Title */}
-                   <div className="space-y-2">
-                      <h2 className="text-4xl md:text-6xl font-bold text-stone-800 font-serif-jp tracking-tight">認定証</h2>
-                      <div className={`w-32 h-0.5 ${selectedCourse.color} mx-auto rounded-full`}></div>
+                   <div className="space-y-1">
+                      <h2 className="text-3xl md:text-5xl font-bold text-stone-800 font-serif-jp tracking-tight">認定証</h2>
+                      <div className={`w-24 h-0.5 ${selectedCourse.color} mx-auto rounded-full`}></div>
                    </div>
 
                    {/* Course & Level */}
-                   <div className="space-y-1">
-                      <div className="text-sm md:text-lg font-bold text-stone-500 font-serif-jp">{selectedCourse.level}</div>
-                      <div className={`text-xl md:text-3xl font-bold ${selectedCourse.accent} font-serif-jp tracking-wide uppercase`}>
-                        {selectedCourse.name} {selectedCourse.subtitle}
+                   <div className="space-y-0.5">
+                      <div className="text-xs md:text-base font-bold text-stone-500 font-serif-jp">{selectedCourse.level}</div>
+                      <div className={`text-lg md:text-2xl font-bold ${selectedCourse.accent} font-serif-jp tracking-wide`}>
+                        {selectedCourse.subtitle}
                       </div>
                    </div>
 
                    {/* Recipient Name */}
-                   <div className="my-4 md:my-8 w-full">
-                      <div className="text-stone-400 text-xs md:text-sm font-bold mb-2">認定者</div>
-                      <div className="relative inline-block px-12">
-                         <div className="text-3xl md:text-5xl font-bold text-stone-900 font-serif-jp min-w-[200px]">
-                            {userName || '　　　　　'} <span className="text-lg md:text-2xl ml-2 text-stone-500 font-normal">殿</span>
+                   <div className="my-2 md:my-6 w-full">
+                      <div className="text-stone-400 text-[10px] md:text-xs font-bold mb-1">認定者</div>
+                      <div className="relative inline-block px-8 md:px-12">
+                         <div className="text-2xl md:text-4xl font-bold text-stone-900 font-serif-jp min-w-[150px]">
+                            {userName || '　　　　　'} <span className="text-base md:text-xl ml-2 text-stone-500 font-normal">殿</span>
                          </div>
                          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-stone-200"></div>
                       </div>
                    </div>
 
                    {/* Text */}
-                   <p className="text-xs md:text-base text-stone-600 font-serif-jp leading-relaxed max-w-2xl px-4">
+                   <p className="text-[10px] md:text-sm lg:text-base text-stone-600 font-serif-jp leading-relaxed max-w-2xl px-2">
                       貴殿は日本ダイエットアカデミー協会が定める<br />
                       全てのカリキュラムを優秀な成績で修了し試験に合格されました<br />
                       よってここに{selectedCourse.level}の資格を認定します
                    </p>
 
                    {/* Footer Info */}
-                   <div className="w-full flex justify-between items-end mt-4 pt-6 border-t border-stone-100">
-                      <div className="text-left">
-                         <div className="text-[10px] font-bold text-stone-400 mb-0.5">発行日</div>
-                         <div className="text-sm md:text-base font-bold text-stone-800 font-serif-jp">2026年3月15日</div>
-                         <div className="text-[10px] font-bold text-stone-400 mt-3 mb-0.5">登録番号</div>
-                         <div className="text-sm font-bold text-stone-800 font-serif-jp tracking-widest uppercase">JDAA-2026-0001</div>
+                   <div className="w-full flex justify-between items-end mt-2 pt-4 border-t border-stone-100">
+                      <div className="text-left space-y-2">
+                         <div>
+                            <div className="text-[8px] md:text-[10px] font-bold text-stone-400">発行日</div>
+                            <div className="text-xs md:text-sm font-bold text-stone-800 font-serif-jp">2026年3月15日</div>
+                         </div>
+                         <div>
+                            <div className="text-[8px] md:text-[10px] font-bold text-stone-400">登録番号</div>
+                            <div className="text-xs md:text-sm font-bold text-stone-800 font-serif-jp tracking-widest uppercase">JDAA-2026-0001</div>
+                         </div>
                       </div>
 
-                      {/* Seal / Signature */}
-                      <div className="relative flex items-center gap-6">
+                      {/* Seal / Signature Area */}
+                      <div className="flex items-center gap-4 md:gap-8">
                          <div className="text-right">
-                            <div className="text-[10px] font-bold text-stone-400 mb-0.5">一般社団法人 日本ダイエットアカデミー協会</div>
-                            <div className="text-sm md:text-lg font-bold text-stone-800 font-serif-jp">代表理事　山田 花子</div>
+                            <div className="text-[8px] md:text-[10px] font-bold text-stone-400 mb-0.5">一般社団法人 日本ダイエットアカデミー協会</div>
+                            <div className="text-xs md:text-base font-bold text-stone-800 font-serif-jp">代表理事　山田 花子</div>
                          </div>
                          
-                         {/* Visual Seal - Enhanced Visibility */}
-                         <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full border-4 border-double flex items-center justify-center p-2 relative z-20 ${
-                           selectedCourseId === 'regular' ? 'border-orange-500/40 text-orange-600' : 
-                           selectedCourseId === 'senior' ? 'border-teal-500/40 text-teal-600' : 
-                           'border-indigo-500/40 text-indigo-600'
+                         {/* Visual Seal - Properly positioned and visible */}
+                         <div className={`w-14 h-14 md:w-20 md:h-20 rounded-full border-4 border-double flex items-center justify-center p-2 relative z-30 bg-white ${
+                           selectedCourseId === 'regular' ? 'border-orange-500/50 text-orange-600' : 
+                           selectedCourseId === 'senior' ? 'border-teal-500/50 text-teal-600' : 
+                           'border-indigo-500/50 text-indigo-600'
                          }`}>
-                            <div className={`absolute inset-0 border border-dashed rounded-full scale-90 opacity-40 ${
+                            <div className={`absolute inset-0 border border-dashed rounded-full scale-90 opacity-30 ${
                                selectedCourseId === 'regular' ? 'border-orange-500' : 
                                selectedCourseId === 'senior' ? 'border-teal-500' : 
                                'border-indigo-500'
                             }`}></div>
-                            <Award size={48} strokeWidth={1} />
-                            <div className="absolute inset-0 flex items-center justify-center text-[7px] font-bold tracking-tighter opacity-10 uppercase pointer-events-none">
-                                Official Certification Seal Official Certification Seal
+                            <AwardIcon size={32} className="md:w-10 md:h-10" strokeWidth={1.5} />
+                            <div className="absolute inset-0 flex items-center justify-center text-[5px] md:text-[6px] font-bold tracking-tighter opacity-10 uppercase pointer-events-none p-1">
+                                OFFICIAL SEAL JDAA CERTIFIED
                             </div>
                          </div>
                       </div>
@@ -227,9 +225,9 @@ export const CertificateDemo: React.FC = () => {
 
                 {/* Overlay while generating */}
                 {isIssuing && (
-                  <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center animate-in fade-in duration-300 z-50">
-                    <div className="w-16 h-16 border-4 border-stone-200 border-t-[#FF8C6B] rounded-full animate-spin mb-4"></div>
-                    <div className="text-lg font-bold text-stone-800 font-serif-jp">認定証を作成中...</div>
+                  <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center animate-in fade-in duration-300 z-50">
+                    <div className="w-12 h-12 border-4 border-stone-200 border-t-[#FF8C6B] rounded-full animate-spin mb-4"></div>
+                    <div className="text-base font-bold text-stone-800 font-serif-jp">認定証を作成中...</div>
                   </div>
                 )}
               </div>
@@ -249,7 +247,7 @@ export const CertificateDemo: React.FC = () => {
         </div>
       </div>
       
-      {/* CSS for print media - Optimized for Single Page A4 Landscape */}
+      {/* CSS for print media - Surgical approach */}
       <style>{`
         @page {
           size: A4 landscape;
@@ -257,50 +255,61 @@ export const CertificateDemo: React.FC = () => {
         }
 
         @media print {
-          /* Hide everything else */
-          body, html {
-            background: #fff !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            height: 100% !important;
-            overflow: hidden !important;
-          }
-          
-          #root > div > header, 
-          #root > div > footer,
-          .no-print,
-          .controls-panel,
-          .scroll-to-top-button {
+          /* Hide all page chrome and UI */
+          header, footer, .no-print, .scroll-to-top-button, button, input {
             display: none !important;
           }
 
-          /* Ensure the certificate fills the page */
+          /* Reset body and container to allow full width for the certificate */
+          body, html {
+            background: white !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            overflow: visible !important;
+          }
+
+          /* Ensure root container doesn't restrict layout */
+          #root, #root > div, main {
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            max-width: none !important;
+          }
+
+          /* Target the certificate panel parent and make it visible */
+          .preview-panel-container {
+            display: block !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+
+          /* The main certificate body fills the whole paper */
           #certificate-print-area {
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
             width: 100vw !important;
             height: 100vh !important;
-            margin: 0 !important;
-            padding: 4% !important;
-            border: none !important;
             box-shadow: none !important;
-            border-radius: 0 !important;
-            z-index: 9999 !important;
-            visibility: visible !important;
+            border: none !important;
+            margin: 0 !important;
+            background-color: white !important;
+            z-index: 1000 !important;
           }
 
-          /* Force high quality graphics in print */
+          /* Force high quality graphics */
           * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
-          }
-
-          /* Avoid multiple pages by forcing no breaks */
-          .certificate-container {
-            page-break-after: avoid;
-            page-break-before: avoid;
-            break-inside: avoid;
+            color-adjust: exact !important;
           }
         }
       `}</style>
