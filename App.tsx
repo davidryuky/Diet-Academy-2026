@@ -10,6 +10,7 @@ import { Pricing } from './pages/Pricing';
 import { Methods } from './pages/Methods';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
+import { CertificateDemo } from './pages/CertificateDemo';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/methods" element={<Methods />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/demo" element={<CertificateDemo />} />
           </Routes>
         </main>
         <Footer />
