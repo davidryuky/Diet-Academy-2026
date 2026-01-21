@@ -100,59 +100,53 @@ export const Home: React.FC = () => {
               <Sidebar />
           </aside>
 
-          <main className="flex-1 space-y-20">
+          <main className="flex-1 space-y-16">
 
-                {/* 1. Path Choice - REDESIGNED FOR LARGER IMPACT */}
-                <div className="space-y-12">
+                {/* 1. Path Choice - Rectangular & Top-positioned */}
+                <div className="space-y-8">
                     <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-4 font-serif-jp leading-tight">
+                        <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-2 font-serif-jp leading-tight">
                             あなたの「目的」はどちらですか？
                         </h2>
-                        <div className="w-16 h-1 bg-[#FF8C6B] mx-auto rounded-full mb-8"></div>
+                        <div className="w-12 h-1 bg-[#FF8C6B] mx-auto rounded-full"></div>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Seeker Path (Larger Block) */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {/* Seeker Path - More horizontal/rectangular */}
                         <div 
                           onClick={() => navigate('/seekers')}
-                          className="group relative overflow-hidden bg-white rounded-[2.5rem] p-10 md:p-14 border border-stone-200 hover:border-orange-300 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col justify-between min-h-[400px]"
+                          className="group relative overflow-hidden bg-white rounded-3xl p-6 md:p-8 border border-stone-200 hover:border-[#FF8C6B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex items-center gap-6"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full opacity-50 transition-transform group-hover:scale-110"></div>
-                            <div className="relative z-10">
-                                <div className="p-4 bg-orange-50 text-[#FF8C6B] inline-block rounded-2xl mb-8 group-hover:bg-[#FF8C6B] group-hover:text-white transition-colors duration-500">
-                                    <Users size={36} strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
-                                    「自分」を<br />変える。
-                                </h3>
-                                <p className="text-stone-500 text-base leading-relaxed mb-8 max-w-xs font-medium">
-                                    一生モノの美しさと健康を手に入れたい個人の方はこちらへ。基礎から習慣化までサポート。
-                                </p>
+                            <div className="flex-shrink-0 p-4 bg-orange-50 text-[#FF8C6B] rounded-2xl group-hover:bg-[#FF8C6B] group-hover:text-white transition-colors duration-500">
+                                <Users size={32} strokeWidth={1.5} />
                             </div>
-                            <div className="relative z-10 flex items-center text-[#FF8C6B] text-lg font-bold group-hover:translate-x-2 transition-transform">
-                                個人向けページへ <ArrowRight size={24} className="ml-3" />
+                            <div className="flex-1">
+                                <h3 className="text-xl font-bold text-stone-800 mb-2 font-serif-jp">「自分」を変える</h3>
+                                <p className="text-stone-500 text-xs leading-relaxed font-medium line-clamp-2">
+                                    一生モノの健康を手に入れたい個人の方はこちら
+                                </p>
+                                <div className="mt-3 flex items-center text-[#FF8C6B] text-[10px] font-bold group-hover:translate-x-1 transition-transform">
+                                    個人向けページへ <ArrowRight size={14} className="ml-2" />
+                                </div>
                             </div>
                         </div>
 
-                        {/* Instructor Path (Larger Block) */}
+                        {/* Instructor Path - More horizontal/rectangular */}
                         <div 
                           onClick={() => navigate('/instructors')}
-                          className="group relative overflow-hidden bg-white rounded-[2.5rem] p-10 md:p-14 border border-stone-200 hover:border-teal-300 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl flex flex-col justify-between min-h-[400px]"
+                          className="group relative overflow-hidden bg-white rounded-3xl p-6 md:p-8 border border-stone-200 hover:border-[#5D9B9B] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl flex items-center gap-6"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full opacity-50 transition-transform group-hover:scale-110"></div>
-                            <div className="relative z-10">
-                                <div className="p-4 bg-teal-50 text-[#5D9B9B] inline-block rounded-2xl mb-8 group-hover:bg-[#5D9B9B] group-hover:text-white transition-colors duration-500">
-                                    <Briefcase size={36} strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-6 font-serif-jp leading-tight">
-                                    「仕事」に<br />する。
-                                </h3>
-                                <p className="text-stone-500 text-base leading-relaxed mb-8 max-w-xs font-medium">
-                                    指導者として、信頼されるプロを目指す方はこちらへ。専門資格とビジネススキルを。
-                                </p>
+                            <div className="flex-shrink-0 p-4 bg-teal-50 text-[#5D9B9B] rounded-2xl group-hover:bg-[#5D9B9B] group-hover:text-white transition-colors duration-500">
+                                <Briefcase size={32} strokeWidth={1.5} />
                             </div>
-                            <div className="relative z-10 flex items-center text-[#5D9B9B] text-lg font-bold group-hover:translate-x-2 transition-transform">
-                                プロ・講師向けページへ <ArrowRight size={24} className="ml-3" />
+                            <div className="flex-1">
+                                <h3 className="text-xl font-bold text-stone-800 mb-2 font-serif-jp">「仕事」にする</h3>
+                                <p className="text-stone-500 text-xs leading-relaxed font-medium line-clamp-2">
+                                    指導者として、信頼されるプロを目指す方はこちら
+                                </p>
+                                <div className="mt-3 flex items-center text-[#5D9B9B] text-[10px] font-bold group-hover:translate-x-1 transition-transform">
+                                    プロ向けページへ <ArrowRight size={14} className="ml-2" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -189,7 +183,7 @@ export const Home: React.FC = () => {
                             <span className="bg-[#FF8C6B] text-white text-[10px] font-bold px-3 py-1 rounded-full mb-4 inline-block">Double License</span>
                             <h3 className="text-2xl md:text-3xl font-bold text-stone-800 mb-4 font-serif-jp">2つの資格を同時に取得</h3>
                             <p className="text-stone-600 text-sm leading-relaxed font-medium mb-6">
-                                当アカデミーの講座は、一度の学習で役割の異なる2つの認定資格を取得できる「ダブルライセンス制度」を採用。専門性の証明が2倍になり、活動の幅が飛躍的に広がります。
+                                一度の学習で役割の異なる2つの認定資格を取得できる「ダブルライセンス制度」を採用。活動の幅が飛躍的に広がります。
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <div className="flex items-center gap-2 text-stone-700 bg-white/60 px-4 py-2 rounded-lg border border-stone-100 text-xs font-bold">
@@ -229,11 +223,6 @@ export const Home: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="mt-10 pt-8 border-t border-stone-100 flex justify-center">
-                        <Button variant="outline" size="md" onClick={() => navigate('/methods')}>
-                            詳しい活用シーンを見る <ArrowRight size={14} className="ml-2" />
-                        </Button>
-                    </div>
                 </div>
 
                 {/* Supervisor Section */}
@@ -247,10 +236,10 @@ export const Home: React.FC = () => {
                             <h3 className="text-3xl font-bold text-stone-800 mb-6 font-serif-jp">プロが監修する、妥協のない質。</h3>
                             <div className="flex items-center gap-4 mb-6">
                                  <div className="font-bold text-2xl text-stone-800">山田 花子 先生</div>
-                                 <span className="text-xs text-stone-500 bg-white border border-stone-200 px-4 py-1.5 rounded-full font-bold">管理栄養士 / 健康運動指導士</span>
+                                 <span className="text-xs text-stone-500 bg-white border border-stone-200 px-4 py-1.5 rounded-full font-bold">管理栄養士</span>
                             </div>
                             <p className="text-stone-700 leading-loose text-base font-medium">
-                                ダイエットは単なる減量ではありません。当協会の3つのコースは、最新の栄養学、運動生理学、そして行動心理学を融合させています。初心者が躓きやすいポイントを徹底的に排除し、実生活や現場で「本当に使える」知識だけを厳選しました。
+                                最新の栄養学、運動生理学を融合。初心者が躓きやすいポイントを徹底的に排除し、現場で「本当に使える」知識を厳選しました。
                             </p>
                             <Button variant="outline" className="mt-8 bg-white" onClick={() => navigate('/methods')}>学習メソッドを見る</Button>
                         </div>
@@ -264,13 +253,13 @@ export const Home: React.FC = () => {
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
-                            { name: "S.Kさん", role: "30代 / 主婦", title: "自分への自信がついた", text: "レギュラーコースで学んだおかげで、無理な我慢をせずに健康的に痩せることができました。今では家族の食事作りも楽しくて仕方ありません。" },
-                            { name: "T.Mさん", role: "20代 / パーソナルトレーナー", title: "指導の幅が広がった", text: "シニアコースでカウンセリングを学び、クライアントの成約率が劇的に上がりました。知識の裏付けがあることが、大きな自信になっています。" }
+                            { name: "S.Kさん", role: "30代 / 主婦", title: "自分への自信がついた", text: "無理な我慢をせずに健康的に痩せることができました。今では家族の食事作りも楽しくて仕方ありません。" },
+                            { name: "T.Mさん", role: "20代 / トレーナー", title: "指導の幅が広がった", text: "カウンセリングを学び、クライアントの成約率が上がりました。知識の裏付けがあることが、大きな自信になっています。" }
                         ].map((t, idx) => (
                             <div key={idx} className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
                                 <div className="flex text-orange-400 mb-4"><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/></div>
                                 <h4 className="font-bold text-lg mb-3 font-serif-jp">「{t.title}」</h4>
-                                <p className="text-sm text-stone-600 leading-relaxed mb-6">{t.text}</p>
+                                <p className="text-sm text-stone-600 leading-relaxed mb-6 line-clamp-3">{t.text}</p>
                                 <div className="text-xs font-bold text-stone-400">{t.name} <span className="font-normal">/ {t.role}</span></div>
                             </div>
                         ))}
