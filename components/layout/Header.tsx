@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
             <div className="flex-shrink-0 flex items-center cursor-pointer py-2 group" onClick={() => navigate('/')}>
               <div className="flex flex-col justify-center">
                 <div className="flex items-end">
-                  <img src="https://dietacademy.jp/img2023/common/header/logo.png" alt="ダイエットマスター資格講座" className="h-16 md:h-20 w-auto object-contain" />
+                  <img src="https://i.postimg.cc/sDKQrDBb/logoremaster.png" alt="ダイエットマスター資格講座" className="h-16 md:h-20 w-auto object-contain" />
                   <span className="text-[10px] md:text-xs font-bold text-[#FF8C6B] ml-2 md:ml-3 font-serif-jp leading-none tracking-widest opacity-90" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                     2026
                   </span>
