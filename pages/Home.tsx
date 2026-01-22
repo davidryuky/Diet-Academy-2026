@@ -16,13 +16,15 @@ export const Home: React.FC = () => {
       <div className="relative w-full h-[600px] overflow-hidden bg-white">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-50/50 to-teal-50/50"></div>
         <div className="relative w-[92%] max-w-[1600px] mx-auto h-full flex flex-col justify-center">
-            <div className="max-w-3xl animate-in fade-in slide-in-from-left-8 duration-1000">
+            <div className="max-w-4xl animate-in fade-in slide-in-from-left-8 duration-1000">
                 <span className="inline-block text-[#FF8C6B] font-bold tracking-widest text-sm md:text-base mb-4 bg-orange-100/50 px-4 py-1 rounded-full border border-orange-200">
                     2026年度 最新カリキュラム
                 </span>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-stone-800 leading-tight md:leading-tight mb-6 font-serif-jp">
                     その知識が、<br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8C6B] to-[#5D9B9B]">一生モノの価値</span>になる。
+                    <span className="md:whitespace-nowrap">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8C6B] to-[#5D9B9B]">一生モノの価値</span>になる。
+                    </span>
                 </h1>
                 <p className="text-lg md:text-xl text-stone-600 mb-8 leading-relaxed font-medium">
                     日本ダイエットアカデミー協会は、個人の健康からプロの独立まで、<br className="hidden md:block" />
@@ -46,7 +48,7 @@ export const Home: React.FC = () => {
           <div className="w-[92%] max-w-[1600px] mx-auto">
               <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif-jp">3段階のステップアップ</h2>
-                  <p className="text-stone-500 max-w-2xl mx-auto">目的や目標に合わせて、最適なレベルからスタート。段階的な昇級も可能です。</p>
+                  <p className="text-stone-500 max-w-2xl mx-auto">目的や目標に合わせて、最適なレベルからスタート. 段階的な昇級も可能です。</p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
@@ -254,7 +256,7 @@ export const Home: React.FC = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                         {[
                             { name: "S.Kさん", role: "30代 / 主婦", title: "自分への自信がついた", text: "無理な我慢をせずに健康的に痩せることができました。今では家族の食事作りも楽しくて仕方ありません。" },
-                            { name: "T.Mさん", role: "20代 / トレーナー", title: "指導の幅が広がった", text: "カウンセリングを学び、クライアントの成約率が上がりました。知識の裏付けがあることが、大きな自信になっています。" }
+                            { name: "T.Mさん", role: "20代 / トレーナー", title: "指導の幅が広がった", text: "カウンセリングを学び、クライアントの成約率が上がりました. 知識の裏付けがあることが、大きな自信になっています。" }
                         ].map((t, idx) => (
                             <div key={idx} className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
                                 <div className="flex text-orange-400 mb-4"><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/></div>
